@@ -1,0 +1,154 @@
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\ApplicationInsights.config
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\csc.exe
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\csc.exe.config
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\csc.rsp
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\csi.exe
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\csi.rsp
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\System.AppContext.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\System.Collections.Immutable.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\System.Diagnostics.StackTrace.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\System.IO.FileSystem.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\System.IO.FileSystem.Primitives.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\vbc.exe
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\vbc.exe.config
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\vbc.rsp
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\VBCSCompiler.exe
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\roslyn\VBCSCompiler.exe.config
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\abkar_api.dll.config
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\abkar_api.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\abkar_api.pdb
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Antlr3.Runtime.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.Web.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.WindowsServer.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.ApplicationInsights.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.Web.Infrastructure.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Newtonsoft.Json.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Net.Http.Formatting.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Helpers.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Http.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Http.WebHost.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Mvc.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Optimization.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Razor.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.WebPages.Deployment.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.WebPages.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.WebPages.Razor.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\WebGrease.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Newtonsoft.Json.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Net.Http.Formatting.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Helpers.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Http.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Http.WebHost.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Mvc.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Optimization.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.Razor.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.WebPages.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.WebPages.Deployment.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\System.Web.WebPages.Razor.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Antlr3.Runtime.pdb
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.ApplicationInsights.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.WindowsServer.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\bin\Microsoft.AI.Web.xml
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\obj\Debug\abkar_api.csprojResolveAssemblyReference.cache
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\obj\Debug\abkar_api.dll
+c:\users\bilgi islem\documents\visual studio 2017\Projects\abkar_api\abkar_api\obj\Debug\abkar_api.pdb
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\ApplicationInsights.config
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\csc.exe
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\csc.exe.config
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\csc.rsp
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\csi.exe
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\csi.rsp
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\System.AppContext.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\System.Collections.Immutable.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\System.IO.FileSystem.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\System.Reflection.Metadata.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\vbc.exe
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\vbc.exe.config
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\vbc.rsp
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\VBCSCompiler.exe
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\roslyn\VBCSCompiler.exe.config
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\abkar_api.dll.config
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\abkar_api.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\abkar_api.pdb
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Antlr3.Runtime.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\EntityFramework.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\EntityFramework.SqlServer.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.Agent.Intercept.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.DependencyCollector.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.Web.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.WindowsServer.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.ApplicationInsights.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.Web.Infrastructure.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Newtonsoft.Json.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Net.Http.Formatting.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Helpers.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Http.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Http.WebHost.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Mvc.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Optimization.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Razor.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.WebPages.Deployment.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.WebPages.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.WebPages.Razor.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\WebGrease.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\EntityFramework.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\EntityFramework.SqlServer.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Newtonsoft.Json.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Net.Http.Formatting.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Helpers.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Http.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Http.WebHost.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Mvc.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Optimization.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Razor.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.WebPages.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.WebPages.Deployment.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.WebPages.Razor.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Antlr3.Runtime.pdb
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.ApplicationInsights.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.DependencyCollector.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.WindowsServer.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Microsoft.AI.Web.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\obj\Debug\abkar_api.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\abkar_api\abkar_api\obj\Debug\abkar_api.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\obj\Debug\abkar_api.pdb
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\JWT.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Cors.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Http.Cors.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Http.Cors.xml
