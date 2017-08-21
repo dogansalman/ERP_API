@@ -9,20 +9,34 @@ using abkar_api.Contexts;
 
 namespace abkar_api.Controllers
 {
+    [RoutePrefix("api/personnel")]
     public class PersonnelController : ApiController
     {
         static readonly Personnel personelRepos = new Personnel();
         DatabaseContext db = new DatabaseContext();
 
-        //get all personel
+        //Get Personnel
         [HttpGet]
+        [Route("")]
         public List<Personnel> get()
         {
-            return db.personnels.ToList();
+            return db.personnels.OrderBy(p => p.name).ToList();
         }
 
-        //add new personel
+        //Get Personnel Detail
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult getDetail(int id)
+        {
+            Personnel personel = db.personnels.FirstOrDefault(p => p.id == id);
+            if (personel == null) return NotFound();
+            return Ok(personel);
+        }
+
+
+        //Add Personnel
         [HttpPost]
+        [Route("")]
         public IHttpActionResult add([FromBody] Personnel personnel)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -37,7 +51,10 @@ namespace abkar_api.Controllers
             }
             return Ok(personnel);
         }
+
+        //Update Personnel
         [HttpPut]
+        [Route("{id}")]
         public IHttpActionResult update([FromBody] Personnel personnel, int id)
         {
             Personnel personnelDetail = db.personnels.Find(id);
@@ -60,7 +77,10 @@ namespace abkar_api.Controllers
             }
             return Ok(personnel);
         }
+
+        //Delete Personnel
         [HttpDelete]
+        [Route("{id}")]
         public IHttpActionResult delete(int id)
         {
             Personnel p = db.personnels.Find(id);

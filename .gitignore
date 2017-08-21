@@ -1,2 +1,5 @@
 ﻿# packages
 /packages
+
+# visual studio 
+.vs

@@ -27,7 +27,7 @@ namespace abkar_api.Models
         [Required]
         [EmailAddress(ErrorMessage = "Geçersiz e-posta adresi")]
         public string email { get; set; }
-        [PhoneMask("9999999999", ErrorMessage = "Telefon numarası {1}. formatında olmalıdır.")]
+        [Numeral(ErrorMessage = "Telefon numarası sadece rakkamsal olmalıdır.")]
         public string phone { get; set; }
         [Required]
         [StringLength(255)]
@@ -40,7 +40,7 @@ namespace abkar_api.Models
         public string password { get; set; }
         [Required]
         [Range(0,1,ErrorMessage = "Durum bilgisi hatalı")]
-        public Boolean state { get; set; }
+        public bool state { get; set; }
         public DateTime? created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
 

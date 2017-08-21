@@ -6,21 +6,34 @@ using abkar_api.Contexts;
 using System.Linq;
 namespace abkar_api.Controllers
 {
+    [RoutePrefix("api/customers")]
     public class CustomersController : ApiController
     {
         static readonly Customers customerRepos = new Customers();
 
         DatabaseContext db = new DatabaseContext();
-        
-        //get customers
+
+        //Get Customers
         [HttpGet]
-        public List<Customers> get()
+        [Route("")] 
+        public List<Customers> getCustomers()
         {
-            return db.customers.ToList();
+            return db.customers.OrderByDescending(c => c.id).ToList();
         }
 
-        //add customer
+        //Get Customer Detail
+        [HttpGet]
+        [Route("{id}")] 
+        public IHttpActionResult getCustomer(int id)
+        {
+            Customers customer = db.customers.FirstOrDefault(p => p.id == id);
+            if (customer == null) return NotFound();
+            return Ok(customer);
+        }
+
+        //Add Customer
         [HttpPost]
+        [Route("")]
         public IHttpActionResult add([FromBody] Customers customer)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -36,16 +49,10 @@ namespace abkar_api.Controllers
             return Ok(customer);
         }
 
-        //add customer
-        [HttpPost]
-        public IHttpActionResult addd()
-        {
-            
-            return Ok();
-        }
-
-        //update customer
+  
+        //Update Customer
         [HttpPut]
+        [Route("{id}")]
         public IHttpActionResult update([FromBody] Customers customer, int id)
         {
             Customers customerDetail = db.customers.Find(id);
@@ -59,6 +66,7 @@ namespace abkar_api.Controllers
             customerDetail.password = customer.password;
             customerDetail.phone = customer.phone;
             customerDetail.updated_date = DateTime.Now;
+            customerDetail.state = customer.state;
             try
             {
                 db.SaveChanges();
@@ -70,8 +78,10 @@ namespace abkar_api.Controllers
           
             return Ok(customerDetail);
         }
-        //delete customer
+        
+        //Delete customer
         [HttpDelete]
+        [Route("{id}")]
         public IHttpActionResult delete(int id)
         {
             Customers customer = db.customers.Find(id);
