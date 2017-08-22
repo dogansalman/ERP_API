@@ -12,7 +12,6 @@ namespace abkar_api.Controllers
     [RoutePrefix("api/personnel")]
     public class PersonnelController : ApiController
     {
-        static readonly Personnel personelRepos = new Personnel();
         DatabaseContext db = new DatabaseContext();
 
         //Get Personnel
@@ -66,6 +65,7 @@ namespace abkar_api.Controllers
             personnelDetail.username = personnel.username;
             personnelDetail.updated_date = DateTime.Now;
             personnelDetail.department_id = personnel.department_id;
+            personnelDetail.state = personnel.state;
 
             try
             {

@@ -16,11 +16,15 @@ namespace abkar_api.Contexts
         }
         public DbSet<Customers> customers { get; set; }
         public DbSet<Personnel> personnels { get; set; }
+        public DbSet<Departments> departments { get; set; }
+        public DbSet<Suppliers> suppliers { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Customers>().ToTable("customers");
             modelBuilder.Entity<Personnel>().ToTable("personnel");
+            modelBuilder.Entity<Departments>().ToTable("departments");
+            modelBuilder.Entity<Suppliers>().ToTable("suppliers");
         }
     }
 }

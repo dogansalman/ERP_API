@@ -9,8 +9,7 @@ namespace abkar_api.Controllers
     [RoutePrefix("api/customers")]
     public class CustomersController : ApiController
     {
-        static readonly Customers customerRepos = new Customers();
-
+    
         DatabaseContext db = new DatabaseContext();
 
         //Get Customers

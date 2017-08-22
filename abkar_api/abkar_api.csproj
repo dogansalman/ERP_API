@@ -166,8 +166,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Contexts\DatabaseContext.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\ExceptionController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Filters\Numeral.cs" />
     <Compile Include="Filters\PhoneMaskAttribute.cs" />
     <Compile Include="Global.asax.cs">

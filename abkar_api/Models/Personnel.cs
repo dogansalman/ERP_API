@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+
 
 namespace abkar_api.Models
 {
@@ -29,6 +26,9 @@ namespace abkar_api.Models
         [Required]
         [Range(1,4)]
         public int department_id { get; set; }
+        [Required]
+        [Range(0, 1, ErrorMessage = "Durum bilgisi hatalı")]
+        public bool state { get; set; }
         public DateTime? created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
 
