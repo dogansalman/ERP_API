@@ -14,9 +14,11 @@ namespace abkar_api.Filters
   
         public override bool IsValid(object value)
         {
-            return Regex.IsMatch((String)value, @"^\d+$");
+            if(String.IsNullOrEmpty(value.ToString())) return Regex.IsMatch((String)value, @"^\d+$");
+            return true;
+
         }
-    
+
 
         public override string FormatErrorMessage(string name)
         {

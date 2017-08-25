@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using abkar_api.Filters;
 
 namespace abkar_api.Models
 {
@@ -10,19 +9,21 @@ namespace abkar_api.Models
     {
         //Properties
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+        [Required]
+        [StringLength(255, ErrorMessage = "Kod en fazla 255 karakter olmalıdır.")]
         public string code { get; set; }
+        [Required]
+        [StringLength(255, ErrorMessage = "Stok tanımı en fazla 255 karakter olmalıdır.")]
         public string name { get; set; }
-        public int unit { get; set; }
-        public string waybillNo { get; set; }
-        [StringLength(255)]
-        public string supplier { get; set; }
-        [StringLength(255)]
+        [Numeral(ErrorMessage = "Adet sadece rakkamsal değer olmalıdır.")]
+        public int unit { get; set; } = 0;
+        [Required]
+        [StringLength(255, ErrorMessage = "Stok tipi en fazla 255 karakter olmalıdır.")]
         public string stock_type { get; set; }
-        public DateTime? created_date { get; set; }
+        public DateTime? created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
     }
-    /*
-     * StockCard kaydı Production'da 
-     */
+
 }

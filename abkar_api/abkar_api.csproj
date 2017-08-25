@@ -169,6 +169,9 @@
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\ExceptionController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
+    <Compile Include="Controllers\StockCardsController.cs" />
+    <Compile Include="Controllers\StockMovementsController.cs" />
+    <Compile Include="Controllers\StockTypesController.cs" />
     <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Filters\Numeral.cs" />
     <Compile Include="Filters\PhoneMaskAttribute.cs" />
@@ -186,6 +189,7 @@
     <Compile Include="Models\ProductionProcessStocks.cs" />
     <Compile Include="Models\ProductionStocks.cs" />
     <Compile Include="Models\StockCards.cs" />
+    <Compile Include="Models\StockMovements.cs" />
     <Compile Include="Models\StockTypes.cs" />
     <Compile Include="Models\Suppliers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

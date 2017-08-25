@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace abkar_api.Models
 {
@@ -10,10 +8,13 @@ namespace abkar_api.Models
     {
         //Properties
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+        [Required]
+        [StringLength(255, ErrorMessage = "Tanım en fazla 255 karakter olmalıdır.")]
         public string name { get; set; }
-        public DateTime? added_date { get; set; }
-        public DateTime? created_date { get; set; }
+        public DateTime? created_date { get; set; } = DateTime.Now;
+        public DateTime? updated_date { get; set; }
 
     }
 }

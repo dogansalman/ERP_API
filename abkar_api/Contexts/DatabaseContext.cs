@@ -18,6 +18,9 @@ namespace abkar_api.Contexts
         public DbSet<Personnel> personnels { get; set; }
         public DbSet<Departments> departments { get; set; }
         public DbSet<Suppliers> suppliers { get; set; }
+        public DbSet<StockTypes> stocktypes { get; set; }
+        public DbSet<StockCards> stockcards { get; set; }
+        public DbSet<StockMovements> stockmovements { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -25,6 +28,9 @@ namespace abkar_api.Contexts
             modelBuilder.Entity<Personnel>().ToTable("personnel");
             modelBuilder.Entity<Departments>().ToTable("departments");
             modelBuilder.Entity<Suppliers>().ToTable("suppliers");
+            modelBuilder.Entity<StockTypes>().ToTable("stocktypes");
+            modelBuilder.Entity<StockCards>().ToTable("stockcards");
+            modelBuilder.Entity<StockMovements>().ToTable("stockmovements"); 
         }
     }
 }

@@ -1,8 +1,7 @@
-﻿using abkar_api.Filters;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using abkar_api.Filters;
 
 namespace abkar_api.Models
 {
@@ -42,10 +41,7 @@ namespace abkar_api.Models
         [Range(0,1,ErrorMessage = "Durum bilgisi hatalı")]
         public bool state { get; set; }
         public DateTime? created_date { get; set; } = DateTime.Now;
-        public DateTime? updated_date { get; set; }
-
-        private List<Customers> customers = new List<Customers>();
-        
+        public DateTime? updated_date { get; set; }       
      
     }
 }

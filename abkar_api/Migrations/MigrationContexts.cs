@@ -8,7 +8,6 @@ namespace abkar_api.Models
         //ConnectionStrings From Web.Config
         public MigrationContexts() : base("ConnectionStr") { }
 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -26,6 +25,10 @@ namespace abkar_api.Models
 
             //Set index key customer email
             modelBuilder.Entity<Customers>().HasKey(c => new { c.id, c.email });
+
+
+            //Set index key stock card code
+            modelBuilder.Entity<StockCards>().HasKey(sc => new { sc.id, sc.code});
         }
 
         //Migrations
@@ -40,8 +43,7 @@ namespace abkar_api.Models
         public DbSet<StockCards> StockCards { get; set; }
         public DbSet<StockTypes> StockTypes { get; set; }
         public DbSet<Suppliers> Suppliers { get; set; }
+        public DbSet<StockMovements> StockMovements { get; set; }
         
-        
-
     }
 }
