@@ -56,7 +56,7 @@ namespace abkar_api.Controllers
 
         //Remove Stock Movement
         [Route("remove/{stockCardId}")]
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult remove([FromBody] StockMovements stockmovements, int stockCardId)
         {
             //Stock Movement Remove type is false
@@ -84,7 +84,7 @@ namespace abkar_api.Controllers
                 ExceptionController.Handle(e);
 
             }
-            return Ok();
+            return Ok(stockcards);
         }
         
 

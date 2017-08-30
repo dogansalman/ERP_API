@@ -13,7 +13,7 @@ namespace abkar_api.Models
         [Required]
         [StringLength(255, ErrorMessage = "Tanım en fazla 255 karakter olmalıdır.")]
         public string name { get; set; }
-        public DateTime? created_date { get; set; } = DateTime.Now;
+        public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
 
     }
