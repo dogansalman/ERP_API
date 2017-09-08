@@ -21,6 +21,7 @@ namespace abkar_api.Contexts
         public DbSet<StockTypes> stocktypes { get; set; }
         public DbSet<StockCards> stockcards { get; set; }
         public DbSet<StockMovements> stockmovements { get; set; }
+        public DbSet<SupplyRequisitions> supplyrequisitions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

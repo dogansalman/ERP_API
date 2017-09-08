@@ -44,6 +44,7 @@ namespace abkar_api.Models
         public DbSet<StockTypes> StockTypes { get; set; }
         public DbSet<Suppliers> Suppliers { get; set; }
         public DbSet<StockMovements> StockMovements { get; set; }
+        public DbSet<SupplyRequisitions> SuppliyRequistions { get; set; }
         
     }
 }

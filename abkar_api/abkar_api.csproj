@@ -173,6 +173,7 @@
     <Compile Include="Controllers\StockMovementsController.cs" />
     <Compile Include="Controllers\StockTypesController.cs" />
     <Compile Include="Controllers\SuppliersController.cs" />
+    <Compile Include="Controllers\SupplyRequistionsController.cs" />
     <Compile Include="Filters\Numeral.cs" />
     <Compile Include="Filters\PhoneMaskAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +193,7 @@
     <Compile Include="Models\StockMovements.cs" />
     <Compile Include="Models\StockTypes.cs" />
     <Compile Include="Models\Suppliers.cs" />
+    <Compile Include="Models\SupplyRequisitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
