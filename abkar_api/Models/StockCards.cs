@@ -22,7 +22,7 @@ namespace abkar_api.Models
         [Required]
         [StringLength(255, ErrorMessage = "Stok tipi en fazla 255 karakter olmalıdır.")]
         public string stock_type { get; set; }
-        public DateTime? created_date { get; set; } = DateTime.Now;
+        public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
     }
 

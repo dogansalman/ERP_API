@@ -31,7 +31,8 @@ namespace abkar_api.Contexts
             modelBuilder.Entity<Suppliers>().ToTable("suppliers");
             modelBuilder.Entity<StockTypes>().ToTable("stocktypes");
             modelBuilder.Entity<StockCards>().ToTable("stockcards");
-            modelBuilder.Entity<StockMovements>().ToTable("stockmovements"); 
+            modelBuilder.Entity<StockMovements>().ToTable("stockmovements");
+            modelBuilder.Entity<SupplyRequisitions>().ToTable("supplyrequisitions");
         }
     }
 }

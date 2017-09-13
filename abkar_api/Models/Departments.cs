@@ -11,7 +11,7 @@ namespace abkar_api.Models
         public int id { get; set; }
         [StringLength(255)]
         public string name { get; set; }
-        public DateTime? created_date { get; set; } = DateTime.Now;
+        public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
         public string role { get; set; }
 
