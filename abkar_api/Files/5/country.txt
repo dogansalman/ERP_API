@@ -1,0 +1,664 @@
+ {
+    "@isim": "ABD",
+    "#text": "ABD"
+  },
+  {
+    "@isim": "Almanya",
+    "#text": "Almanya"
+  },
+  {
+    "@isim": "Angola",
+    "#text": "Angola"
+  },
+  {
+    "@isim": "Anguilla",
+    "#text": "Anguilla"
+  },
+  {
+    "@isim": "Arjantin",
+    "#text": "Arjantin"
+  },
+  {
+    "@isim": "Arnavutluk",
+    "#text": "Arnavutluk"
+  },
+  {
+    "@isim": "Aruba",
+    "#text": "Aruba"
+  },
+  {
+    "@isim": "Avustralya",
+    "#text": "Avustralya"
+  },
+  {
+    "@isim": "Avusturya",
+    "#text": "Avusturya"
+  },
+  {
+    "@isim": "Azerbeycan",
+    "#text": "Azerbeycan"
+  },
+  {
+    "@isim": "Bahamalar",
+    "#text": "Bahamalar"
+  },
+  {
+    "@isim": "Bahreyn",
+    "#text": "Bahreyn"
+  },
+  {
+    "@isim": "Bangladeþ",
+    "#text": "Bangladeþ"
+  },
+  {
+    "@isim": "Barbados",
+    "#text": "Barbados"
+  },
+  {
+    "@isim": "Batý Samo",
+    "#text": "Batý Samo"
+  },
+  {
+    "@isim": "Belçika",
+    "#text": "Belçika"
+  },
+  {
+    "@isim": "Belize",
+    "#text": "Belize"
+  },
+  {
+    "@isim": "Benin",
+    "#text": "Benin"
+  },
+  {
+    "@isim": "Bermuda",
+    "#text": "Bermuda"
+  },
+  {
+    "@isim": "Beyaz Rusya",
+    "#text": "Beyaz Rusya"
+  },
+  {
+    "@isim": "Birleþik Arap Emirlikleri",
+    "#text": "Birleþik Arap Emirlikleri"
+  },
+  {
+    "@isim": "Bolivya",
+    "#text": "Bolivya"
+  },
+  {
+    "@isim": "Bosna Hersek",
+    "#text": "Bosna Hersek"
+  },
+  {
+    "@isim": "Botsvana",
+    "#text": "Botsvana"
+  },
+  {
+    "@isim": "Brezilya",
+    "#text": "Brezilya"
+  },
+  {
+    "@isim": "Brunei",
+    "#text": "Brunei"
+  },
+  {
+    "@isim": "Bulgaristan",
+    "#text": "Bulgaristan"
+  },
+  {
+    "@isim": "Burundi",
+    "#text": "Burundi"
+  },
+  {
+    "@isim": "Cebelitarýk",
+    "#text": "Cebelitarýk"
+  },
+  {
+    "@isim": "Cezayir",
+    "#text": "Cezayir"
+  },
+  {
+    "@isim": "Cook Adalarý",
+    "#text": "Cook Adalarý"
+  },
+  {
+    "@isim": "Çad",
+    "#text": "Çad"
+  },
+  {
+    "@isim": "Çek Cumhuriyeti",
+    "#text": "Çek Cumhuriyeti"
+  },
+  {
+    "@isim": "Çin Halk Cumhuriyeti",
+    "#text": "Çin Halk Cumhuriyeti"
+  },
+  {
+    "@isim": "Danimarka",
+    "#text": "Danimarka"
+  },
+  {
+    "@isim": "Dominik",
+    "#text": "Dominik"
+  },
+  {
+    "@isim": "Dominika",
+    "#text": "Dominika"
+  },
+  {
+    "@isim": "Ekvator",
+    "#text": "Ekvator"
+  },
+  {
+    "@isim": "El Salvador",
+    "#text": "El Salvador"
+  },
+  {
+    "@isim": "Endonezya",
+    "#text": "Endonezya"
+  },
+  {
+    "@isim": "Eritre",
+    "#text": "Eritre"
+  },
+  {
+    "@isim": "Ermenistan",
+    "#text": "Ermenistan"
+  },
+  {
+    "@isim": "Estonya",
+    "#text": "Estonya"
+  },
+  {
+    "@isim": "Etiyopya",
+    "#text": "Etiyopya"
+  },
+  {
+    "@isim": "Falkland Adalarý",
+    "#text": "Falkland Adalarý"
+  },
+  {
+    "@isim": "Faroe Adalarý",
+    "#text": "Faroe Adalarý"
+  },
+  {
+    "@isim": "Fas",
+    "#text": "Fas"
+  },
+  {
+    "@isim": "Fiji",
+    "#text": "Fiji"
+  },
+  {
+    "@isim": "Fildiþi Sahilleri",
+    "#text": "Fildiþi Sahilleri"
+  },
+  {
+    "@isim": "Filipinler",
+    "#text": "Filipinler"
+  },
+  {
+    "@isim": "Finlandiya",
+    "#text": "Finlandiya"
+  },
+  {
+    "@isim": "Fransa",
+    "#text": "Fransa"
+  },
+  {
+    "@isim": "Gabon",
+    "#text": "Gabon"
+  },
+  {
+    "@isim": "Gana",
+    "#text": "Gana"
+  },
+  {
+    "@isim": "Gine Cumhuriyeti",
+    "#text": "Gine Cumhuriyeti"
+  },
+  {
+    "@isim": "Greneda",
+    "#text": "Greneda"
+  },
+  {
+    "@isim": "Grönland",
+    "#text": "Grönland"
+  },
+  {
+    "@isim": "Guatemala",
+    "#text": "Guatemala"
+  },
+  {
+    "@isim": "Guyana",
+    "#text": "Guyana"
+  },
+  {
+    "@isim": "Güney Afrika",
+    "#text": "Güney Afrika"
+  },
+  {
+    "@isim": "Gürcistan",
+    "#text": "Gürcistan"
+  },
+  {
+    "@isim": "Haiti",
+    "#text": "Haiti"
+  },
+  {
+    "@isim": "Hýrvatistan",
+    "#text": "Hýrvatistan"
+  },
+  {
+    "@isim": "Hindistan",
+    "#text": "Hindistan"
+  },
+  {
+    "@isim": "Hollanda",
+    "#text": "Hollanda"
+  },
+  {
+    "@isim": "Hong Kong",
+    "#text": "Hong Kong"
+  },
+  {
+    "@isim": "Irak",
+    "#text": "Irak"
+  },
+  {
+    "@isim": "Ýngiltere - GB",
+    "#text": "Ýngiltere - GB"
+  },
+  {
+    "@isim": "Ýran",
+    "#text": "Ýran"
+  },
+  {
+    "@isim": "Ýrlanda",
+    "#text": "Ýrlanda"
+  },
+  {
+    "@isim": "Ýskoçya",
+    "#text": "Ýskoçya"
+  },
+  {
+    "@isim": "Ýspanya",
+    "#text": "Ýspanya"
+  },
+  {
+    "@isim": "Ýsrail",
+    "#text": "Ýsrail"
+  },
+  {
+    "@isim": "Ýsveç",
+    "#text": "Ýsveç"
+  },
+  {
+    "@isim": "Ýsviçre",
+    "#text": "Ýsviçre"
+  },
+  {
+    "@isim": "Ýtalya",
+    "#text": "Ýtalya"
+  },
+  {
+    "@isim": "Ýzlanda",
+    "#text": "Ýzlanda"
+  },
+  {
+    "@isim": "Jamaika",
+    "#text": "Jamaika"
+  },
+  {
+    "@isim": "Japonya",
+    "#text": "Japonya"
+  },
+  {
+    "@isim": "K.K.T.C",
+    "#text": "K.K.T.C"
+  },
+  {
+    "@isim": "Kamboçya",
+    "#text": "Kamboçya"
+  },
+  {
+    "@isim": "Kamerun",
+    "#text": "Kamerun"
+  },
+  {
+    "@isim": "Kanada",
+    "#text": "Kanada"
+  },
+  {
+    "@isim": "Katar",
+    "#text": "Katar"
+  },
+  {
+    "@isim": "Kazakistan",
+    "#text": "Kazakistan"
+  },
+  {
+    "@isim": "Kenya",
+    "#text": "Kenya"
+  },
+  {
+    "@isim": "Kýrgýzistan",
+    "#text": "Kýrgýzistan"
+  },
+  {
+    "@isim": "Kolombiya",
+    "#text": "Kolombiya"
+  },
+  {
+    "@isim": "Kongo",
+    "#text": "Kongo"
+  },
+  {
+    "@isim": "Kore Cumhuriyeti",
+    "#text": "Kore Cumhuriyeti"
+  },
+  {
+    "@isim": "Kosta Rika",
+    "#text": "Kosta Rika"
+  },
+  {
+    "@isim": "Kuveyt",
+    "#text": "Kuveyt"
+  },
+  {
+    "@isim": "Küba",
+    "#text": "Küba"
+  },
+  {
+    "@isim": "Laos",
+    "#text": "Laos"
+  },
+  {
+    "@isim": "Lesotho",
+    "#text": "Lesotho"
+  },
+  {
+    "@isim": "Letonya",
+    "#text": "Letonya"
+  },
+  {
+    "@isim": "Liberya",
+    "#text": "Liberya"
+  },
+  {
+    "@isim": "Libya",
+    "#text": "Libya"
+  },
+  {
+    "@isim": "Lihtenþtayn",
+    "#text": "Lihtenþtayn"
+  },
+  {
+    "@isim": "Litvanya",
+    "#text": "Litvanya"
+  },
+  {
+    "@isim": "Lübnan",
+    "#text": "Lübnan"
+  },
+  {
+    "@isim": "Lüksemburg",
+    "#text": "Lüksemburg"
+  },
+  {
+    "@isim": "Macaristan",
+    "#text": "Macaristan"
+  },
+  {
+    "@isim": "Madagaskar",
+    "#text": "Madagaskar"
+  },
+  {
+    "@isim": "Makau",
+    "#text": "Makau"
+  },
+  {
+    "@isim": "Makedonya",
+    "#text": "Makedonya"
+  },
+  {
+    "@isim": "Malavi",
+    "#text": "Malavi"
+  },
+  {
+    "@isim": "Malezya",
+    "#text": "Malezya"
+  },
+  {
+    "@isim": "Mali",
+    "#text": "Mali"
+  },
+  {
+    "@isim": "Malta",
+    "#text": "Malta"
+  },
+  {
+    "@isim": "Meksika",
+    "#text": "Meksika"
+  },
+  {
+    "@isim": "Mýsýr",
+    "#text": "Mýsýr"
+  },
+  {
+    "@isim": "Moðolistan",
+    "#text": "Moðolistan"
+  },
+  {
+    "@isim": "Moldovya",
+    "#text": "Moldovya"
+  },
+  {
+    "@isim": "Monako",
+    "#text": "Monako"
+  },
+  {
+    "@isim": "Mozambik",
+    "#text": "Mozambik"
+  },
+  {
+    "@isim": "Namibya",
+    "#text": "Namibya"
+  },
+  {
+    "@isim": "Nepal",
+    "#text": "Nepal"
+  },
+  {
+    "@isim": "Nijerya",
+    "#text": "Nijerya"
+  },
+  {
+    "@isim": "Nikaragua",
+    "#text": "Nikaragua"
+  },
+  {
+    "@isim": "Norveç",
+    "#text": "Norveç"
+  },
+  {
+    "@isim": "Özbekistan",
+    "#text": "Özbekistan"
+  },
+  {
+    "@isim": "Pakistan",
+    "#text": "Pakistan"
+  },
+  {
+    "@isim": "Panama",
+    "#text": "Panama"
+  },
+  {
+    "@isim": "Papua Yeni Gine",
+    "#text": "Papua Yeni Gine"
+  },
+  {
+    "@isim": "Paraguay",
+    "#text": "Paraguay"
+  },
+  {
+    "@isim": "Peru",
+    "#text": "Peru"
+  },
+  {
+    "@isim": "Polonya",
+    "#text": "Polonya"
+  },
+  {
+    "@isim": "Portekiz",
+    "#text": "Portekiz"
+  },
+  {
+    "@isim": "Porto Riko",
+    "#text": "Porto Riko"
+  },
+  {
+    "@isim": "Romanya",
+    "#text": "Romanya"
+  },
+  {
+    "@isim": "Ruanda",
+    "#text": "Ruanda"
+  },
+  {
+    "@isim": "Rusya",
+    "#text": "Rusya"
+  },
+  {
+    "@isim": "Senegal",
+    "#text": "Senegal"
+  },
+  {
+    "@isim": "Singapur",
+    "#text": "Singapur"
+  },
+  {
+    "@isim": "Slovakya",
+    "#text": "Slovakya"
+  },
+  {
+    "@isim": "Slovenya",
+    "#text": "Slovenya"
+  },
+  {
+    "@isim": "Solomon Adalarý",
+    "#text": "Solomon Adalarý"
+  },
+  {
+    "@isim": "Somali",
+    "#text": "Somali"
+  },
+  {
+    "@isim": "Sri Lanka",
+    "#text": "Sri Lanka"
+  },
+  {
+    "@isim": "Sudan",
+    "#text": "Sudan"
+  },
+  {
+    "@isim": "Suriye",
+    "#text": "Suriye"
+  },
+  {
+    "@isim": "Suudi Arabistan",
+    "#text": "Suudi Arabistan"
+  },
+  {
+    "@isim": "Þili",
+    "#text": "Þili"
+  },
+  {
+    "@isim": "Tacikistan",
+    "#text": "Tacikistan"
+  },
+  {
+    "@isim": "Tanzanya",
+    "#text": "Tanzanya"
+  },
+  {
+    "@isim": "Tayland",
+    "#text": "Tayland"
+  },
+  {
+    "@isim": "Tayvan",
+    "#text": "Tayvan"
+  },
+  {
+    "@isim": "Togo",
+    "#text": "Togo"
+  },
+  {
+    "@isim": "Tonga",
+    "#text": "Tonga"
+  },
+  {
+    "@isim": "Tunus",
+    "#text": "Tunus"
+  },
+  {
+    "@isim": "Türkmenistan",
+    "#text": "Türkmenistan"
+  },
+  {
+    "@isim": "Uganda",
+    "#text": "Uganda"
+  },
+  {
+    "@isim": "Ukranya",
+    "#text": "Ukranya"
+  },
+  {
+    "@isim": "Umman",
+    "#text": "Umman"
+  },
+  {
+    "@isim": "Uruguay",
+    "#text": "Uruguay"
+  },
+  {
+    "@isim": "Ürdün",
+    "#text": "Ürdün"
+  },
+  {
+    "@isim": "Venezuela",
+    "#text": "Venezuela"
+  },
+  {
+    "@isim": "Vietnam",
+    "#text": "Vietnam"
+  },
+  {
+    "@isim": "Virjin Adalarý",
+    "#text": "Virjin Adalarý"
+  },
+  {
+    "@isim": "Yemen",
+    "#text": "Yemen"
+  },
+  {
+    "@isim": "Yeni Zelanda",
+    "#text": "Yeni Zelanda"
+  },
+  {
+    "@isim": "Yugoslavya",
+    "#text": "Yugoslavya"
+  },
+  {
+    "@isim": "Yunanistan",
+    "#text": "Yunanistan"
+  },
+  {
+    "@isim": "Zambiya",
+    "#text": "Zambiya"
+  },
+  {
+    "@isim": "Zimbabve",
+    "#text": "Zimbabve"
+  }

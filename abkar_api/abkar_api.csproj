@@ -169,6 +169,7 @@
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\ExceptionController.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\StockCardsController.cs" />
     <Compile Include="Controllers\StockMovementsController.cs" />

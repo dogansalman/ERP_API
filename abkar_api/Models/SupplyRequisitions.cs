@@ -28,6 +28,7 @@ namespace abkar_api.Models
         public int real_unit { get; set; } = 0;
         [Numeral()]
         public int state { get; set; } = 0;
+        public string waybill { get; set; }
         [Numeral()]
         public Boolean notify { get; set; } = false;
         [Required]

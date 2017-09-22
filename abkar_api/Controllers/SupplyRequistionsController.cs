@@ -59,6 +59,60 @@ namespace abkar_api.Controllers
             return Ok(supplyrequistions);
 
         }
-        
+        //Update Supply Requisition
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult update([FromBody] SupplyRequisitions supplyrequistions, int id)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+           
+      
+       
+            SupplyRequisitions sr = db.supplyrequisitions.Find(id);
+         
+
+            if (sr == null)
+            {
+                return NotFound();
+            }
+
+            sr.state = supplyrequistions.state;
+            sr.real_unit = supplyrequistions.real_unit;
+            sr.updated_date = DateTime.Now;
+
+            //Add stock unit
+            if(supplyrequistions.state == 1)
+            {
+                StockMovements sm = new StockMovements();
+                StockCards sc = db.stockcards.Find(sr.stockcard_id);
+
+                sm.created_date = DateTime.Now;
+                sm.movement_type = true;
+                sm.on_requisition = true;
+                sm.supplier = sr.supplier;
+                sm.waybill = supplyrequistions.waybill;
+                sm.unit = sr.real_unit;
+                sm.stockcard_id = sr.stockcard_id;
+
+                db.stockmovements.Add(sm);
+
+                sc.unit = sc.unit + sr.real_unit;
+                
+            }
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+
+                ExceptionController.Handle(e);
+            }
+
+
+            return Ok(supplyrequistions);
+        }
+
     }
 }

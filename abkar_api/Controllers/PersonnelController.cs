@@ -17,9 +17,17 @@ namespace abkar_api.Controllers
         //Get Personnel
         [HttpGet]
         [Route("")]
-        public List<Personnel> get()
+        public object get()
         {
-            return db.personnels.OrderBy(p => p.name).ToList();
+            return db.personnels.Join(
+                db.departments,
+                p => p.department_id,
+                d => d.id,
+                (p, d) => new
+                {
+                    Personnel = p,
+                    Department = d
+                }).OrderByDescending(pd => pd.Personnel.name).ToList();
         }
 
         //Get Personnel Detail

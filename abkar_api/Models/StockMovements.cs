@@ -24,6 +24,7 @@ namespace abkar_api.Models
         public int unit { get; set; } = 0;
         [Required]
         public bool? movement_type { get; set; } = true;
+        public bool on_requisition { get; set; } = false;
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
 
