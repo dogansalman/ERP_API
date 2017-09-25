@@ -99,6 +99,23 @@ namespace abkar_api.Controllers
             return Ok(files);
           
         }
+        [HttpGet]
+        [Route("download/{id}/{file}/{ext}")]
+        public HttpResponseMessage download(int id, string file, string ext)
+        {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            string path = HttpContext.Current.Server.MapPath("~/Files/" + id + "/" + file + "." + ext);
+            var stream = new FileStream(path, FileMode.Open);
+
+            result.Content = new StreamContent(stream);
+            result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
+            result.Content.Headers.ContentDisposition.FileName = Path.GetFileName(path);
+            result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            result.Content.Headers.ContentLength = stream.Length;
+
+            return result;
+ 
+        }
 
     }
 }
