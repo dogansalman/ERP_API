@@ -152,3 +152,6 @@ C:\inetpub\wwwroot\abkar_api\abkar_api\bin\JWT.dll
 C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Cors.dll
 C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Http.Cors.dll
 C:\inetpub\wwwroot\abkar_api\abkar_api\bin\System.Web.Http.Cors.xml
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\Faker.NET4.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\FizzWare.NBuilder.dll
+C:\inetpub\wwwroot\abkar_api\abkar_api\bin\de-DE\Faker.NET4.resources.dll

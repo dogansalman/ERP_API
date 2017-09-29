@@ -13,12 +13,10 @@ namespace abkar_api.Models
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             //Set index key ProductionPersonnel
-            modelBuilder.Entity<ProductionPersonnel>()
-                .HasKey(pp => new { pp.personel_id, pp.production_id });
+            modelBuilder.Entity<ProductionPersonnel>().HasKey(pp => new { pp.personel_id, pp.production_id });
 
             //Set index key ProductionStocks
-            modelBuilder.Entity<ProductionProcessStocks>()
-                .HasKey(pps => new { pps.production_id, pps.stock_id });
+            modelBuilder.Entity<ProductionProcessStocks>().HasKey(pps => new { pps.production_id, pps.stock_id });
 
             //Set index key personnel username
             modelBuilder.Entity<Personnel>().HasKey(p => new {p.id, p.username });
@@ -26,9 +24,11 @@ namespace abkar_api.Models
             //Set index key customer email
             modelBuilder.Entity<Customers>().HasKey(c => new { c.id, c.email });
 
-
             //Set index key stock card code
             modelBuilder.Entity<StockCards>().HasKey(sc => new { sc.id, sc.code});
+
+            //Set index key order stocks
+            modelBuilder.Entity<OrderStocks>().HasKey(os => new { os.order_id, os.stockcard_id });
         }
 
         //Migrations
@@ -45,6 +45,8 @@ namespace abkar_api.Models
         public DbSet<Suppliers> Suppliers { get; set; }
         public DbSet<StockMovements> StockMovements { get; set; }
         public DbSet<SupplyRequisitions> SuppliyRequistions { get; set; }
+        public DbSet<OrderStocks> OrderStocks { get; set; }
+        public DbSet<Orders> Orders { get; set; }
         
     }
 }

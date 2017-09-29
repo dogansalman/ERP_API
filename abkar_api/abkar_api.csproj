@@ -51,6 +51,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Faker.NET4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Faker.Net.1.0.3\lib\net40\Faker.NET4.dll</HintPath>
+    </Reference>
+    <Reference Include="FizzWare.NBuilder, Version=5.0.0.138, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NBuilder.5.0.0\lib\net40\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="JWT, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JWT.1.3.4\lib\3.5\JWT.dll</HintPath>
     </Reference>
@@ -170,6 +176,7 @@
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\ExceptionController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\StockCardsController.cs" />
     <Compile Include="Controllers\StockMovementsController.cs" />
@@ -185,6 +192,8 @@
     <Compile Include="Migrations\MigrationContexts.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\Departments.cs" />
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\OrderStocks.cs" />
     <Compile Include="Models\Personnel.cs" />
     <Compile Include="Models\ProductionPersonnel.cs" />
     <Compile Include="Models\Productions.cs" />

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using abkar_api.Models;
 
 namespace abkar_api.Contexts
@@ -22,6 +18,8 @@ namespace abkar_api.Contexts
         public DbSet<StockCards> stockcards { get; set; }
         public DbSet<StockMovements> stockmovements { get; set; }
         public DbSet<SupplyRequisitions> supplyrequisitions { get; set; }
+        public DbSet<Orders> orders { get; set; }
+        public DbSet<OrderStocks> orderstocks { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -33,6 +31,9 @@ namespace abkar_api.Contexts
             modelBuilder.Entity<StockCards>().ToTable("stockcards");
             modelBuilder.Entity<StockMovements>().ToTable("stockmovements");
             modelBuilder.Entity<SupplyRequisitions>().ToTable("supplyrequisitions");
+            modelBuilder.Entity<Orders>().ToTable("orders");
+            modelBuilder.Entity<OrderStocks>().ToTable("orderstocks");
+
         }
     }
 }
