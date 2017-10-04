@@ -12,7 +12,6 @@ namespace abkar_api.Models
     {
         //Properties
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         [Required]
         [Numeral(ErrorMessage = "id sadece rakkamsal değer olmalıdır.")]

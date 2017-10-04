@@ -20,6 +20,7 @@ namespace abkar_api.Contexts
         public DbSet<SupplyRequisitions> supplyrequisitions { get; set; }
         public DbSet<Orders> orders { get; set; }
         public DbSet<OrderStocks> orderstocks { get; set; }
+        public DbSet<Machines> machines { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -33,6 +34,7 @@ namespace abkar_api.Contexts
             modelBuilder.Entity<SupplyRequisitions>().ToTable("supplyrequisitions");
             modelBuilder.Entity<Orders>().ToTable("orders");
             modelBuilder.Entity<OrderStocks>().ToTable("orderstocks");
+            modelBuilder.Entity<Machines>().ToTable("machines");
 
         }
     }

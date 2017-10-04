@@ -53,6 +53,8 @@ namespace abkar_api.Migrations
                 types.Add("Mamul");
                 types.Add("Yarý Mamul");
 
+          
+
                 var stockcard = Builder<StockCards>.CreateListOfSize(80)
                      .All()
                      .With(sc => sc.code = "Kapak " + Faker.RandomNumber.Next(99, 999).ToString())
@@ -90,6 +92,15 @@ namespace abkar_api.Migrations
                new StockTypes { name = "Yarý Mamul" },
                new StockTypes { name = "Mamul" }
            );
+
+            
+            context.Machines.AddOrUpdate(s => s.name,
+                 new Machines { name = "Tekowa T20" },
+                 new Machines { name = "Hynadia A40" },
+                 new Machines { name = "Honda DD125" },
+                 new Machines { name = "Arion 120" }
+            );
+
 
             context.Deparments.AddOrUpdate(d => d.name,
                 new Departments { name = "Planlama", created_date = DateTime.Now, role = "planning" },

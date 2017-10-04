@@ -29,6 +29,8 @@ namespace abkar_api.Models
 
             //Set index key order stocks
             modelBuilder.Entity<OrderStocks>().HasKey(os => new { os.order_id, os.stockcard_id });
+
+            
         }
 
         //Migrations
@@ -47,6 +49,7 @@ namespace abkar_api.Models
         public DbSet<SupplyRequisitions> SuppliyRequistions { get; set; }
         public DbSet<OrderStocks> OrderStocks { get; set; }
         public DbSet<Orders> Orders { get; set; }
+        public DbSet<Machines> Machines { get; set; }
         
     }
 }

@@ -7,14 +7,21 @@ namespace abkar_api.Models
 {
     public class OrderStock
     {
-        public int stockcard_id { get; set; }
+      
+        public StockCards order_stock { get; set; }
         public int order_unit { get; set; }
+    }
+    public class OrderStockDetail
+    {
+        public StockCards order_stock { get; set; }
+        public int over_date { get; set; }
+        public int customer_id { get; set; }
+
     }
 
     public class Orders
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         [Required]
         public int customer_id { get; set; }
@@ -22,8 +29,10 @@ namespace abkar_api.Models
         public DateTime over_date { get; set; }
         [StringLength(1000)]
         public string order_note { get; set; }
+        public bool is_production { get; set; } = false;
+        public bool is_complated { get; set; } = false;
         [NotMapped]
-        public  ICollection<OrderStock> order_stocks { get; set; }
+        public  ICollection<OrderStock>  order_stocks { get; set; }
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
 

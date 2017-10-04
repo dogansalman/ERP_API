@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using abkar_api.Filters;
 
 namespace abkar_api.Models
@@ -10,7 +9,6 @@ namespace abkar_api.Models
 
         //Properties
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         [Required]
         public string company { get; set; }
@@ -40,7 +38,7 @@ namespace abkar_api.Models
         [Required]
         [Range(0,1,ErrorMessage = "Durum bilgisi hatalı")]
         public bool state { get; set; }
-        public DateTime created_date { get; set; } = DateTime.Now;
+        public DateTime? created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }       
      
     }

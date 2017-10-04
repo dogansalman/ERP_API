@@ -7,7 +7,7 @@ namespace abkar_api.Models
     public class OrderStocks
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int id { get; set; }
         [Required]
         public int order_id { get; set; }
         [Required]

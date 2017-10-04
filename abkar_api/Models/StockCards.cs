@@ -9,7 +9,6 @@ namespace abkar_api.Models
     {
         //Properties
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         [Required]
         [StringLength(255, ErrorMessage = "Kod en fazla 255 karakter olmalıdır.")]
