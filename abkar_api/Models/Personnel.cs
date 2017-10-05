@@ -1,11 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace abkar_api.Models
 {
     public class Personnel
     {
-        //Properties
         [Key]
         public int id { get; set; }
         [Required]
@@ -16,6 +16,7 @@ namespace abkar_api.Models
         public string lastname { get; set; }
         [Required]
         [StringLength(255)]
+        [Index("IX_Personnel", 1, IsUnique = true)]
         public string username { get; set; }
         [Required]
         [StringLength(255)]

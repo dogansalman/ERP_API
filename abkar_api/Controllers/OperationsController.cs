@@ -1,42 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
 
 namespace abkar_api.Controllers
 {
-    [RoutePrefix("api/machines")]
-    public class MachinesController : ApiController
+    [RoutePrefix("api/operations")]
+    public class OperationsController : ApiController
     {
         DatabaseContext db = new DatabaseContext();
 
-        //Get Machines
+        //Get Operations
         [HttpGet]
         [Route("")]
-        public List<Machines> get()
+        public List<Operations> get()
         {
-            return db.machines.OrderByDescending(c => c.id).ToList();
+            return db.operations.OrderByDescending(c => c.id).ToList();
         }
 
-        //Get Machine
+        //Get Operation
         [HttpGet]
         [Route("{id}")]
         public IHttpActionResult detail(int id)
         {
-            Machines machine = db.machines.FirstOrDefault(p => p.id == id);
-            if (machine == null) return NotFound();
-            return Ok(machine);
+            Operations operation = db.operations.FirstOrDefault(p => p.id == id);
+            if (operation == null) return NotFound();
+            return Ok(operation);
         }
 
-        //Add Machine
+        //Add Operation
         [HttpPost]
         [Route("")]
-        public IHttpActionResult add([FromBody] Machines machine)
+        public IHttpActionResult add([FromBody] Operations operation)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
-            db.machines.Add(machine);
+            db.operations.Add(operation);
             try
             {
                 db.SaveChanges();
@@ -45,18 +47,19 @@ namespace abkar_api.Controllers
             {
                 ExceptionController.Handle(e);
             }
-            return Ok(machine);
+            return Ok(operation);
         }
 
         //Update Operation
         [Route("{id}")]
         [HttpPut]
-        public IHttpActionResult update([FromBody] Machines machine, int id)
+        public IHttpActionResult update([FromBody] Operations operation, int id)
         {
-            Machines machineDetail = db.machines.Find(id);
-            if (machineDetail == null) return NotFound();
-            machineDetail.name = machine.name;
-            machineDetail.updated_date = DateTime.Now;
+            Operations operationDetail = db.operations.Find(id);
+            if (operationDetail == null) return NotFound();
+            operationDetail.name = operation.name;
+            operationDetail.updated_date = DateTime.Now;
+            operationDetail.operation_time = operation.operation_time;
             try
             {
                 db.SaveChanges();
@@ -65,7 +68,7 @@ namespace abkar_api.Controllers
             {
                 ExceptionController.Handle(e);
             }
-            return Ok(machine);
+            return Ok(operation);
         }
 
         //Delete Operation
@@ -73,9 +76,9 @@ namespace abkar_api.Controllers
         [HttpDelete]
         public IHttpActionResult delete(int id)
         {
-            Machines machine = db.machines.Find(id);
-            if (machine == null) return NotFound();
-            db.machines.Remove(machine);
+            Operations operation = db.operations.Find(id);
+            if (operation == null) return NotFound();
+            db.operations.Remove(operation);
             try
             {
                 db.SaveChanges();
@@ -86,6 +89,7 @@ namespace abkar_api.Controllers
             }
             return Ok();
         }
+
 
     }
 }

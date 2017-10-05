@@ -12,7 +12,7 @@ namespace abkar_api.Controllers
     {
         DatabaseContext db = new DatabaseContext();
        
-        //Get
+        // Orders
         [HttpGet]
         [Route("")]
         public object get()
@@ -29,6 +29,8 @@ namespace abkar_api.Controllers
                 }
                 ).OrderByDescending(o => o.order.created_date).ToList();
         }
+
+        // Order
         [HttpGet]
         [Route("{id}")]
         public object detail(int id)
@@ -59,6 +61,7 @@ namespace abkar_api.Controllers
             return order;
 
         }
+       
         //Add
         [HttpPost]
         [Route("")]

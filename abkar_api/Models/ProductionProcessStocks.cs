@@ -9,6 +9,8 @@ namespace abkar_api.Models
     public class ProductionProcessStocks
     {
         //Properties
+        [Key]
+        public int id { get; set; }
         public int production_id { get; set; }
         public int stock_id { get; set; }
         public int production_time { get; set; }

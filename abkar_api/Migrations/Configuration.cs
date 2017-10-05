@@ -55,9 +55,9 @@ namespace abkar_api.Migrations
 
           
 
-                var stockcard = Builder<StockCards>.CreateListOfSize(80)
+                var stockcard = Builder<StockCards>.CreateListOfSize(30)
                      .All()
-                     .With(sc => sc.code = "Kapak " + Faker.RandomNumber.Next(99, 999).ToString())
+                     .With(sc => sc.code = "Kapak " + Faker.RandomNumber.Next(999, 9999).ToString())
                      .With(sc => sc.stock_type =  types[Faker.RandomNumber.Next(0,4)])
                      .With(sc => sc.unit = Faker.RandomNumber.Next(50, 200))
                      .With(sc => sc.name = Faker.Lorem.Sentence(2))
@@ -99,6 +99,13 @@ namespace abkar_api.Migrations
                  new Machines { name = "Hynadia A40" },
                  new Machines { name = "Honda DD125" },
                  new Machines { name = "Arion 120" }
+            );
+
+            context.Operations.AddOrUpdate(s => s.name,
+              new Operations { name = "Kalite Kontrol", operation_time = 3},
+              new Operations { name = "Delme", operation_time = 2 },
+              new Operations { name = "Temizleme", operation_time = 4 },
+              new Operations { name = "Delik Açma", operation_time = 7 }
             );
 
 

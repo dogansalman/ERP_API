@@ -12,6 +12,7 @@ namespace abkar_api.Models
         public int id { get; set; }
         [Required]
         [StringLength(255, ErrorMessage = "Kod en fazla 255 karakter olmalıdır.")]
+        [Index("IX_StockCard", 1, IsUnique = true)]
         public string code { get; set; }
         [Required]
         [StringLength(255, ErrorMessage = "Stok tanımı en fazla 255 karakter olmalıdır.")]

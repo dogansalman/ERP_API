@@ -177,6 +177,7 @@
     <Compile Include="Controllers\ExceptionController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\MachinesController.cs" />
+    <Compile Include="Controllers\OperationsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\StockCardsController.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\Machines.cs" />
+    <Compile Include="Models\Operations.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\OrderStocks.cs" />
     <Compile Include="Models\Personnel.cs" />

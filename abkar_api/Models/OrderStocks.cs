@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace abkar_api.Models
 {
@@ -8,8 +9,10 @@ namespace abkar_api.Models
         [Key]
         public int id { get; set; }
         [Required]
+        [Index("IX_OrderStock", 1, IsUnique = true)]
         public int order_id { get; set; }
         [Required]
+        [Index("IX_OrderStock", 2, IsUnique = true)]
         public int stockcard_id { get; set; }
         [Required]
         public int order_unit { get; set; }

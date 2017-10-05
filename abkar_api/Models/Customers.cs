@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using abkar_api.Filters;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace abkar_api.Models
 {
@@ -11,6 +12,8 @@ namespace abkar_api.Models
         [Key]
         public int id { get; set; }
         [Required]
+        [StringLength(255)]
+        [Index("IX_Company", 1, IsUnique = true)]
         public string company { get; set; }
         [Required]
         [StringLength(255, ErrorMessage = "Adres en fazla 255 karakter olmalıdır.")]
