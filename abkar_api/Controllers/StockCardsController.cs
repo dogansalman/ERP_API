@@ -18,7 +18,7 @@ namespace abkar_api.Controllers
         [HttpGet]
         public List<StockCards> get()
         {
-            return db.stockcards.OrderBy((sc => sc.name)).ToList();
+            return db.stockcards.Where(sc => sc.deleted == false).OrderBy((sc => sc.name)).ToList();
         }
 
         //Detail Stock Card
