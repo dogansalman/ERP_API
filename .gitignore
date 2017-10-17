@@ -1,5 +1,5 @@
-﻿# packages
-/packages
-
-# visual studio 
-.vs
+﻿### ignore packages
+/packages/
+rest_api/obj
+rest_api/bin
+.vs/
