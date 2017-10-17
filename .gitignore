@@ -1,5 +1,5 @@
 ﻿### ignore packages
-/packages/
+
 rest_api/obj
 rest_api/bin
 .vs/
