@@ -1,5 +1,6 @@
 ﻿### ignore packages
 /packages/
-rest_api/obj
-rest_api/bin
+abkar_api/obj
+abkar_api/bin
+abkar_api/files
 .vs/
