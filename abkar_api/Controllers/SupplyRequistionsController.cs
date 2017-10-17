@@ -3,6 +3,8 @@ using System.Linq;
 using System.Web.Http;
 using abkar_api.Contexts;
 using abkar_api.Models;
+using abkar_api.Libary.Email;
+using abkar_api.Libary.ExceptionHandler;
 
 namespace abkar_api.Controllers
 {
@@ -43,7 +45,7 @@ namespace abkar_api.Controllers
             catch (Exception ex)
             {
 
-                ExceptionController.Handle(ex);
+                ExceptionHandler.Handle(ex);
             }
 
             if(supplyrequistions.notify)
@@ -51,7 +53,7 @@ namespace abkar_api.Controllers
                 Suppliers supplier = db.suppliers.FirstOrDefault(s => s.company == supplyrequistions.supplier);
                 if(supplier != null)
                 {
-                    EmailController.Send(supplyrequistions.message, supplier.email, "Abkar Sipariş Bildirim");
+                    Email.Send(supplyrequistions.message, supplier.email, "Abkar Sipariş Bildirim");
                 }
             }
             
@@ -106,7 +108,7 @@ namespace abkar_api.Controllers
             catch (Exception e)
             {
 
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
 
 

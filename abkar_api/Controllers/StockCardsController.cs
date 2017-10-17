@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
+using abkar_api.Libary.ExceptionHandler;
 
 namespace abkar_api.Controllers
 {
@@ -42,7 +43,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok(stockCard);
         }
@@ -63,7 +64,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok(stockCards);
         }
@@ -73,19 +74,16 @@ namespace abkar_api.Controllers
         [HttpDelete]
         public IHttpActionResult delete(int id)
         {
-            // TODO Check use in production !
-            // TODO Delete all stock movement for this stock card
-
             StockCards stockCard = db.stockcards.Find(id);
             if (stockCard == null) return NotFound();
-            db.stockcards.Remove(stockCard);
+            stockCard.deleted = true;
             try
             {
                 db.SaveChanges();
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok();
         }

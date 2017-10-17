@@ -24,6 +24,7 @@ namespace abkar_api.Models
         public string stock_type { get; set; }
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
+        public bool deleted { get; set; } = false;
     }
 
 }

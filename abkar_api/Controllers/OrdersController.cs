@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
+using abkar_api.Libary.ExceptionHandler;
 
 namespace abkar_api.Controllers
 {
@@ -18,16 +19,13 @@ namespace abkar_api.Controllers
         public object get()
         {
 
-            return db.orders.OrderByDescending(o => o.over_date)
-                .Join(db.customers,
-                o => o.customer_id,
-                c => c.id,
-                (o, c) => new
-                {
-                    customer = c,
-                    order = o
-                }
-                ).OrderByDescending(o => o.order.created_date).ToList();
+            return (
+                 from o in db.orders
+                 join c in db.customers on o.customer_id equals c.id
+                 join os in db.orderstocks on o.id equals os.order_id
+                 join sc in db.stockcards on os.stockcard_id equals sc.id
+                 select new { customer = c, order = o, order_stock = os, stockcard = sc }
+                 ).OrderByDescending(olist => olist.order.created_date).ToList();
         }
 
         // Order
@@ -93,7 +91,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception ex)
             {
-                ExceptionController.Handle(ex);
+                ExceptionHandler.Handle(ex);
             }
             return Ok(orders);
         }

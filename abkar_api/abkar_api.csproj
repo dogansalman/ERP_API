@@ -173,8 +173,6 @@
     <Compile Include="Contexts\DatabaseContext.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
-    <Compile Include="Controllers\EmailController.cs" />
-    <Compile Include="Controllers\ExceptionController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\MachinesController.cs" />
     <Compile Include="Controllers\OperationsController.cs" />
@@ -190,6 +188,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Libary\Email\Email.cs" />
+    <Compile Include="Libary\ExceptionHandler\ExceptionHandler.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\MigrationContexts.cs" />
     <Compile Include="Models\Customers.cs" />
@@ -201,9 +201,7 @@
     <Compile Include="Models\Personnel.cs" />
     <Compile Include="Models\ProductionPersonnel.cs" />
     <Compile Include="Models\Productions.cs" />
-    <Compile Include="Models\ProductionStates.cs" />
-    <Compile Include="Models\ProductionProcessStocks.cs" />
-    <Compile Include="Models\ProductionStocks.cs" />
+    <Compile Include="Models\ProductionPersonnelOperation.cs" />
     <Compile Include="Models\StockCards.cs" />
     <Compile Include="Models\StockMovements.cs" />
     <Compile Include="Models\StockTypes.cs" />

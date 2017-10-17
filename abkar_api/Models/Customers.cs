@@ -42,7 +42,8 @@ namespace abkar_api.Models
         [Range(0,1,ErrorMessage = "Durum bilgisi hatalı")]
         public bool state { get; set; }
         public DateTime? created_date { get; set; } = DateTime.Now;
-        public DateTime? updated_date { get; set; }       
-     
+        public DateTime? updated_date { get; set; }
+        public bool deleted { get; set; } = false;
+
     }
 }

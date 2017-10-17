@@ -11,7 +11,7 @@ namespace abkar_api.Migrations
     
     internal sealed class Configuration : DbMigrationsConfiguration<abkar_api.Models.MigrationContexts>
     {
-        bool EnableDummyData = true;
+        bool EnableDummyData = false;
 
         public Configuration()
         {
@@ -84,37 +84,39 @@ namespace abkar_api.Migrations
                 context.Suppliers.AddOrUpdate(s => s.id, supplier.ToArray());
 
 
+                context.StockTypes.AddOrUpdate(s => s.name,
+                    new StockTypes { name = "Döküm" },
+                    new StockTypes { name = "Hammadde" },
+                    new StockTypes { name = "Yarý Mamul" },
+                    new StockTypes { name = "Mamul" }
+                );
+
+
+                context.Machines.AddOrUpdate(s => s.name,
+                     new Machines { name = "Tekowa T20" },
+                     new Machines { name = "Hynadia A40" },
+                     new Machines { name = "Honda DD125" },
+                     new Machines { name = "Arion 120" }
+                );
+
+                context.Operations.AddOrUpdate(s => s.name,
+                  new Operations { name = "Kalite Kontrol", operation_time = 3 },
+                  new Operations { name = "Delme", operation_time = 2 },
+                  new Operations { name = "Temizleme", operation_time = 4 },
+                  new Operations { name = "Delik Açma", operation_time = 7 }
+                );
+
             }
 
-            context.StockTypes.AddOrUpdate(s => s.name,
-               new StockTypes { name = "Döküm" },
-               new StockTypes { name = "Hammadde" },
-               new StockTypes { name = "Yarý Mamul" },
-               new StockTypes { name = "Mamul" }
-           );
-
-            
-            context.Machines.AddOrUpdate(s => s.name,
-                 new Machines { name = "Tekowa T20" },
-                 new Machines { name = "Hynadia A40" },
-                 new Machines { name = "Honda DD125" },
-                 new Machines { name = "Arion 120" }
-            );
-
-            context.Operations.AddOrUpdate(s => s.name,
-              new Operations { name = "Kalite Kontrol", operation_time = 3},
-              new Operations { name = "Delme", operation_time = 2 },
-              new Operations { name = "Temizleme", operation_time = 4 },
-              new Operations { name = "Delik Açma", operation_time = 7 }
-            );
-
-
+            //Seed Departments
             context.Deparments.AddOrUpdate(d => d.name,
-                new Departments { name = "Planlama", created_date = DateTime.Now, role = "planning" },
-                new Departments { name = "Operasyon", created_date = DateTime.Now, role = "operation" },
-                new Departments { name = "Kalite Kontrol", created_date = DateTime.Now, role = "quality" },
-                new Departments { name = "Yönetim", created_date = DateTime.Now, role = "admin" }
-            );
+                 new Departments { name = "Planlama", created_date = DateTime.Now, role = "planning" },
+                 new Departments { name = "Operasyon", created_date = DateTime.Now, role = "operation" },
+                 new Departments { name = "Kalite Kontrol", created_date = DateTime.Now, role = "quality" },
+                 new Departments { name = "Yönetim", created_date = DateTime.Now, role = "admin" }
+             );
+
+
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿using abkar_api.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Web.Http;
-using abkar_api.Contexts;
 using System.Linq;
+using System.Web.Http;
+using abkar_api.Models;
+using abkar_api.Contexts;
+using abkar_api.Libary.ExceptionHandler;
+
 namespace abkar_api.Controllers
 {
     [RoutePrefix("api/customers")]
@@ -17,7 +19,7 @@ namespace abkar_api.Controllers
         [Route("")] 
         public List<Customers> getCustomers()
         {
-            return db.customers.OrderByDescending(c => c.id).ToList();
+            return db.customers.Where(c => c.deleted == false).OrderByDescending(c => c.id).ToList();
         }
 
         //Get Customer Detail
@@ -43,7 +45,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok(customer);
         }
@@ -72,7 +74,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception e) 
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
           
             return Ok(customerDetail);
@@ -85,14 +87,14 @@ namespace abkar_api.Controllers
         {
             Customers customer = db.customers.Find(id);
             if(customer == null ) return NotFound();
-            db.customers.Remove(customer);            
+            customer.deleted = true;         
             try
             {
                 db.SaveChanges();
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok();
         }

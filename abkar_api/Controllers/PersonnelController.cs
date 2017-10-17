@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
-
+using abkar_api.Libary.ExceptionHandler;
 
 
 namespace abkar_api.Controllers
@@ -26,7 +26,9 @@ namespace abkar_api.Controllers
                 {
                     Personnel = p,
                     Department = d
-                }).OrderByDescending(pd => pd.Personnel.name).ToList();
+                })
+                .Where(p => p.Personnel.deleted == false)
+                .OrderByDescending(pd => pd.Personnel.name).ToList();
         }
 
         //Get Personnel Detail
@@ -53,7 +55,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok(personnel);
         }
@@ -80,7 +82,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok(personnel);
         }
@@ -92,15 +94,14 @@ namespace abkar_api.Controllers
         {
             Personnel p = db.personnels.Find(id);
             if (p == null) return NotFound();
-            db.personnels.Remove(p);
-
+            p.deleted = true;
             try
             {
                 db.SaveChanges();
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok();
         }

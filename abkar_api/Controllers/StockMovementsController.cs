@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
+using abkar_api.Libary.ExceptionHandler;
 
 namespace abkar_api.Controllers
 {
@@ -49,7 +50,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
             }
             return Ok(stockmovements);
         }
@@ -81,7 +82,7 @@ namespace abkar_api.Controllers
             }
             catch (Exception e)
             {
-                ExceptionController.Handle(e);
+                ExceptionHandler.Handle(e);
 
             }
             return Ok(stockcards);

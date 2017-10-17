@@ -18,10 +18,8 @@ namespace abkar_api.Models
         public DbSet<Departments> Deparments { get; set; }
         public DbSet<Personnel> Personnel { get; set; }
         public DbSet<ProductionPersonnel> ProductionPersonnel { get; set; }
-        public DbSet<ProductionProcessStocks> ProductionProcessStocks { get; set; }
+        public DbSet<ProductionPersonnelOperation> ProductionProcessStocks { get; set; }
         public DbSet<Productions> Productions { get; set; }
-        public DbSet<ProductionStates> ProductionStates { get; set; }
-        public DbSet<ProductionStocks> ProductionStock { get; set; }
         public DbSet<StockCards> StockCards { get; set; }
         public DbSet<StockTypes> StockTypes { get; set; }
         public DbSet<Suppliers> Suppliers { get; set; }

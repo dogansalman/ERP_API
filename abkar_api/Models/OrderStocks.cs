@@ -16,6 +16,7 @@ namespace abkar_api.Models
         public int stockcard_id { get; set; }
         [Required]
         public int order_unit { get; set; }
+        public int produced_orderstock { get; set; } = 0;
         public DateTime created_date { get; set; } = DateTime.Now;
 
     }
