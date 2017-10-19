@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace abkar_api.Models
 {
@@ -9,10 +7,10 @@ namespace abkar_api.Models
         //Properties
         [Key]
         public int id { get; set; }
+        [Required]
         public int production_id { get; set; }
+        [Required]
         public int personel_id { get; set; }
-        [NotMapped]
-        public ICollection<ProductionPersonnelOperation> personnel_operation { get; set; }
 
     }
 }

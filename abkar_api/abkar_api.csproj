@@ -178,6 +178,7 @@
     <Compile Include="Controllers\OperationsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
+    <Compile Include="Controllers\ProductionsController.cs" />
     <Compile Include="Controllers\StockCardsController.cs" />
     <Compile Include="Controllers\StockMovementsController.cs" />
     <Compile Include="Controllers\StockTypesController.cs" />
@@ -207,6 +208,8 @@
     <Compile Include="Models\StockTypes.cs" />
     <Compile Include="Models\Suppliers.cs" />
     <Compile Include="Models\SupplyRequisitions.cs" />
+    <Compile Include="ModelViews\_ProductionPersonnelOperation.cs" />
+    <Compile Include="ModelViews\_ProductionPersonnelsWithOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
