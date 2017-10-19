@@ -19,14 +19,11 @@ namespace abkar_api.Controllers
         [HttpPost]
         public IHttpActionResult add([FromBody] Productions production)
         {
-
-          
-
-       
             if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            //production
             db.productions.Add(production);
             db.SaveChanges();
-
 
             //production personnels
             production.production_personnels.ToList().ForEach(pp =>
@@ -54,40 +51,7 @@ namespace abkar_api.Controllers
                     db.production_personnel_operation.Add(personnelOperation);
                 });
                 db.SaveChanges();
-
-
             });
-
-            
-
-
-         
-            //create production
-
-            /*
-
-            using (var dbContext = new DatabaseContext())
-            {
-                //production personnels
-                production.production_personnels.ToList().ForEach(pp =>
-                {
-                    ProductionPersonnel personnel = new ProductionPersonnel
-                    {
-                        personel_id = pp.personnel.id,
-                        production_id = 1
-                    };
-                    db.production_personnels.Add(personnel);
-           
-                });
-
-            }
-
-
-             */
-
-
-
-
 
             return Ok();
 
