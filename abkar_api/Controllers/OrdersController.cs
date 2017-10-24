@@ -18,13 +18,22 @@ namespace abkar_api.Controllers
         [Route("")]
         public object get()
         {
-
             return (
                  from o in db.orders
                  join c in db.customers on o.customer_id equals c.id
                  join os in db.orderstocks on o.id equals os.order_id
                  join sc in db.stockcards on os.stockcard_id equals sc.id
-                 select new { customer = c, order = o, order_stock = os, stockcard = sc }
+                 select new {
+                     customer = c,
+                     order = o,
+                     order_stock = os,
+                     stockcard = sc,
+                     produced_unit = (
+                     from p in db.productions
+                     where p.is_cancel == false && p.is_complate == false && p.order_id == o.id
+                     select (p.unit)
+                     ).DefaultIfEmpty(0).Sum()
+                 }
                  ).OrderByDescending(olist => olist.order.created_date).ToList();
         }
 

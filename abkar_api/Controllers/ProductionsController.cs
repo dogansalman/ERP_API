@@ -21,7 +21,17 @@ namespace abkar_api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            //production
+            //update order production state
+            Orders order = db.orders.Find(production.order_id);
+            if (order == null) return NotFound();
+            order.is_production = true;
+
+            //update stock card real stock
+            int stockcard_id = db.orderstocks.Find(production.order_id).stockcard_id;
+            StockCards sc = db.stockcards.Find(stockcard_id);
+            sc.unit = sc.unit - production.unit;
+
+            //add production
             db.productions.Add(production);
             db.SaveChanges();
 
@@ -53,7 +63,7 @@ namespace abkar_api.Controllers
                 db.SaveChanges();
             });
 
-            return Ok();
+            return Ok(production);
 
         }
     }
