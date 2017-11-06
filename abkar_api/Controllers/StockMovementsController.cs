@@ -13,14 +13,12 @@ namespace abkar_api.Controllers
     {
         DatabaseContext db = new DatabaseContext();
 
-     
-        
         //Get Stock Movements
         [Route("{stockCardId}")]
         [HttpGet]
         public List<StockMovements> get(int stockCardId)
         {
-            return db.stockmovements.Where(sm => sm.stockcard_id == stockCardId).OrderBy(sm => sm.created_date).ToList();
+            return db.stockmovements.Where(sm => sm.stockcard_id == stockCardId).OrderByDescending(sm => sm.id).ToList();
         }
 
         //Add Stock Movement
@@ -29,7 +27,7 @@ namespace abkar_api.Controllers
         public IHttpActionResult add([FromBody] StockMovements stockmovements, int stockCardId)
         {
             //Stock Movement Add type is true
-            stockmovements.movement_type = true;
+            stockmovements.incoming_stock = true;
 
             //Validation Request
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -61,7 +59,7 @@ namespace abkar_api.Controllers
         public IHttpActionResult remove([FromBody] StockMovements stockmovements, int stockCardId)
         {
             //Stock Movement Remove type is false
-            stockmovements.movement_type = false;
+            stockmovements.incoming_stock = false;
 
             //Validation Request
             if (!ModelState.IsValid) return BadRequest(ModelState);

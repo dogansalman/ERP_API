@@ -54,14 +54,17 @@ namespace abkar_api.Controllers
                (os, sc) => new
                {
                    order_stock = sc,
-                   order_unit = os.order_unit
+                   order_unit = os.order_unit,
+                   produced_orderstock = os.produced_orderstock
                }
             ).ToList();
+
+  
 
             ICollection<OrderStock> orderstocks = new List<OrderStock>();
             orderstock.ForEach(os =>
             {
-                orderstocks.Add(new OrderStock { order_stock = os.order_stock, order_unit = os.order_unit });
+                orderstocks.Add(new OrderStock { order_stock = os.order_stock, order_unit = os.order_unit, produced_orderstock = os.produced_orderstock });
             });
             order.order_stocks = orderstocks;
 

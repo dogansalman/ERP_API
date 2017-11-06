@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using abkar_api.Models;
-using abkar_api.Libary.ExceptionHandler;
 using abkar_api.Contexts;
-using System.Data.Entity.SqlServer;
 
 namespace abkar_api.Controllers
 {
@@ -29,7 +24,7 @@ namespace abkar_api.Controllers
                     production = p,
                     order = o,
                 }
-                ).ToList();
+                ).OrderByDescending(o => o.production.id).ToList();
         }
 
         [Route("")]
@@ -111,14 +106,115 @@ namespace abkar_api.Controllers
                         personnel = per,
                         operations = (
                          from ppo in db.production_personnel_operation
-                         join pp in db.production_personnels on ppo.production_personel_id equals pp.id 
-                         where pp.personel_id == per.id
-                         select new {ppo}
+                         join pp in db.production_personnels on ppo.production_personel_id equals pp.id
+                         where pp.personel_id == per.id && pp.production_id == pro.id
+                         select new {
+                             machine = new {name = ppo.machine},
+                             operation = new { name = ppo.operation},
+                             operation_time = ppo.operation_time
+                         }
                         ).ToList()
+
+
                     }
                     ).ToList()
                 }
                 ).FirstOrDefault();
         }
+
+        [Route("dispatch/{production_id}")]
+        [HttpPost]
+        public IHttpActionResult addDispatch([FromBody] StockMovements stockmovements, int production_id)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            Productions productions = db.productions.Find(production_id);
+            if (productions.is_complate) return BadRequest();
+
+            //get stockcard id
+            var stockcard = (
+                from p in db.productions
+                where p.id == production_id
+                join os in db.orderstocks on p.order_id equals os.order_id
+                select new { os.stockcard_id }
+                ).FirstOrDefault();
+            if (stockcard == null) return NotFound();
+            
+            //add dispatch to stockmovement
+            stockmovements.production_id = production_id;
+            stockmovements.incoming_stock = false;
+            stockmovements.stockcard_id = stockcard.stockcard_id;
+            stockmovements.created_date = DateTime.Now;
+            db.stockmovements.Add(stockmovements);
+            db.SaveChanges();
+
+            // create new junk stock movement
+            if (stockmovements.junk > 0)
+            {
+                StockMovements junkStockmovement = new StockMovements()
+                {
+                    is_junk = true,
+                    supplier = "",
+                    unit = stockmovements.junk,
+                    incoming_stock = false,
+                    production_id = production_id,
+                    waybill = "",
+                    stockcard_id = stockcard.stockcard_id,
+                    created_date = DateTime.Now
+                };
+                db.stockmovements.Add(junkStockmovement);
+                db.SaveChanges();
+
+            }
+
+
+            // set produced unit in order
+            OrderStocks order_stocks = db.orderstocks.Where(os => os.order_id == productions.order_id).FirstOrDefault();
+            order_stocks.produced_orderstock = (order_stocks.produced_orderstock + stockmovements.unit);
+            db.SaveChanges();
+
+            // set produced unit in production
+            productions.produced_unit += stockmovements.unit;
+
+            // check & complate production
+            if (productions.unit <= productions.produced_unit)
+            {
+                productions.is_complate = true;
+                productions.updated_date = DateTime.Now;
+            }
+
+            db.SaveChanges();
+
+            // check & complate orders
+            Orders order = db.orders.Find(order_stocks.order_id);
+            int totalProduced = db.productions.Where(pr => pr.order_id == order.id && pr.is_complate == true).Select(p => p.unit).DefaultIfEmpty(0).Sum();
+            if (totalProduced == order_stocks.order_unit)
+            {
+                order.is_complated = true;
+                order.is_production = false;
+                order.updated_date = DateTime.Now;
+                db.SaveChanges();
+            }
+
+
+            return Ok(stockmovements);
+        }
+        
+        [Route("dispatch/{production_id}")]
+        [HttpGet]
+        public object getDispatchs(int production_id)
+        {
+            return (
+                from ds in db.stockmovements
+                join sc in db.stockcards on ds.stockcard_id equals sc.id
+                where ds.production_id == production_id
+                select new
+                {
+                    stockcard = sc,
+                    stockmovement = ds
+                }
+                ).OrderByDescending(sc => sc.stockmovement.id).ToList();
+        }
     }
 }
+

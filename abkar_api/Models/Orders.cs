@@ -10,6 +10,7 @@ namespace abkar_api.Models
       
         public StockCards order_stock { get; set; }
         public int order_unit { get; set; }
+        public int produced_orderstock  { get; set; }
     }
     public class OrderStockDetail
     {

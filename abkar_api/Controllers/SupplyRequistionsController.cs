@@ -88,7 +88,7 @@ namespace abkar_api.Controllers
                 StockCards sc = db.stockcards.Find(sr.stockcard_id);
 
                 sm.created_date = DateTime.Now;
-                sm.movement_type = true;
+                sm.incoming_stock = true;
                 sm.on_requisition = true;
                 sm.supplier = sr.supplier;
                 sm.waybill = supplyrequistions.waybill;

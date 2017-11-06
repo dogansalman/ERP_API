@@ -15,13 +15,13 @@ namespace abkar_api.Models
         [Required]
         public string name { get; set; }
         [StringLength(1500)]
-        [Required]
         public string description { get; set; }
         public bool is_complate { get; set; } = false;
         public bool is_cancel { get; set; } = false;
         public int product_id { get; set; } = 0;
         [Required]
         public int unit { get; set; }
+        public int produced_unit { get; set; } = 0;
         [Required]
         public int order_id { get; set; }
         [Required]
@@ -31,7 +31,6 @@ namespace abkar_api.Models
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
         [NotMapped]
-        [Required]
         public ICollection<_ProductionPersonnelsWithOperation> production_personnels { get; set; }
         
     }
