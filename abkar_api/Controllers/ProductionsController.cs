@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
@@ -77,6 +78,58 @@ namespace abkar_api.Controllers
 
             return Ok(production);
 
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult update([FromBody] Productions production, int id)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            Productions pro = db.productions.Find(id);
+            if (pro == null) return NotFound();
+
+            // update production
+            pro.name = production.name;
+            pro.description = production.description;
+            pro.start_time = production.start_time;
+            pro.end_time = production.end_time;
+            pro.unit = production.unit;
+
+            // delete production personel & operation
+            var productionPersonnelId = db.production_personnels.Where(x => x.production_id == id).Select(s => s.id).ToList();
+            db.production_personnels.RemoveRange(db.production_personnels.Where(pp => productionPersonnelId.Contains(pp.id)));
+            db.production_personnel_operation.RemoveRange(db.production_personnel_operation.Where(ppo => productionPersonnelId.Contains(ppo.production_personel_id)));
+
+            // create production personel & operation
+            production.production_personnels.ToList().ForEach(pp =>
+            {
+                ProductionPersonnel personnel = new ProductionPersonnel
+                {
+                    personel_id = pp.personnel.id,
+                    production_id = id
+                };
+                db.production_personnels.Add(personnel);
+
+                db.SaveChanges();
+
+                //personnels operation
+                pp.operations.ToList().ForEach(op =>
+                {
+                    ProductionPersonnelOperation personnelOperation = new ProductionPersonnelOperation
+                    {
+                        production_personel_id = personnel.id,
+                        machine = op.machine.name,
+                        operation = op.operation.name,
+                        operation_time = op.operation_time
+                    };
+
+                    db.production_personnel_operation.Add(personnelOperation);
+                });
+                db.SaveChanges();
+            });
+            db.SaveChanges();
+
+            return Ok(production);
         }
 
         [Route("detail/{id}")]
@@ -204,16 +257,8 @@ namespace abkar_api.Controllers
         [HttpGet]
         public object getDispatchs(int production_id)
         {
-            return (
-                from ds in db.stockmovements
-                join sc in db.stockcards on ds.stockcard_id equals sc.id
-                where ds.production_id == production_id
-                select new
-                {
-                    stockcard = sc,
-                    stockmovement = ds
-                }
-                ).OrderByDescending(sc => sc.stockmovement.id).ToList();
+            return db.stockmovements.Where(sc => sc.production_id == production_id).OrderByDescending(sc => sc.id).ToList();
+       
         }
     }
 }

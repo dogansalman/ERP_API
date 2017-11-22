@@ -57,16 +57,9 @@ namespace abkar_api.Controllers
                    order_unit = os.order_unit,
                    produced_orderstock = os.produced_orderstock
                }
-            ).ToList();
+            ).FirstOrDefault();
 
-  
-
-            ICollection<OrderStock> orderstocks = new List<OrderStock>();
-            orderstock.ForEach(os =>
-            {
-                orderstocks.Add(new OrderStock { order_stock = os.order_stock, order_unit = os.order_unit, produced_orderstock = os.produced_orderstock });
-            });
-            order.order_stocks = orderstocks;
+            order.order_stocks = new OrderStock() { order_stock = orderstock.order_stock, order_unit = orderstock.order_unit, produced_orderstock = orderstock.produced_orderstock };
 
             return order;
 
@@ -83,17 +76,13 @@ namespace abkar_api.Controllers
 
             db.SaveChanges();
 
-            orders.order_stocks.ToList().ForEach(i =>
+            OrderStocks os = new OrderStocks()
             {
-                OrderStocks os = new OrderStocks()
-                {
-                    order_id = orders.id,
-                    order_unit = i.order_unit,
-                    stockcard_id = i.order_stock.id
-                };
-                db.orderstocks.Add(os);
-            });
-
+                order_id = orders.id,
+                order_unit = orders.order_stocks.order_unit,
+                stockcard_id = orders.order_stocks.order_stock.id
+            };
+            db.orderstocks.Add(os);
             db.SaveChanges();
 
             try

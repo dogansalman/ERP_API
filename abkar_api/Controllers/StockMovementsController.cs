@@ -86,6 +86,17 @@ namespace abkar_api.Controllers
             return Ok(stockcards);
         }
         
+        [Route("")]
+        [HttpPut]
+        public IHttpActionResult changeWaybillNo( [FromBody] StockMovements stockmovement)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            StockMovements sm = db.stockmovements.Find(stockmovement.id);
+            sm.waybill = stockmovement.waybill;
+            db.SaveChanges();
+            return Ok(stockmovement);
+        }
+
 
 
     }

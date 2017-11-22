@@ -68,6 +68,8 @@ namespace abkar_api.Controllers
             customerDetail.phone = customer.phone;
             customerDetail.updated_date = DateTime.Now;
             customerDetail.state = customer.state;
+            customerDetail.tax_name = customer.tax_name;
+            customerDetail.tax_number = customer.tax_number;
             try
             {
                 db.SaveChanges();

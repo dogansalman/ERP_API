@@ -11,7 +11,7 @@ namespace abkar_api.Migrations
     
     internal sealed class Configuration : DbMigrationsConfiguration<abkar_api.Models.MigrationContexts>
     {
-        bool EnableDummyData = true;
+        bool EnableDummyData = false;
 
         public Configuration()
         {

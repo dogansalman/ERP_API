@@ -38,8 +38,12 @@ namespace abkar_api.Models
         [Required]
         [StringLength(255,ErrorMessage = "soyad en fazla 255 karakter olmalıdır.")]
         public string password { get; set; }
+        [StringLength(255)]
+        public string tax_name { get; set; }
+        [StringLength(255)]
+        public string tax_number { get; set; }
         [Required]
-        [Range(0,1,ErrorMessage = "Durum bilgisi hatalı")]
+        [Range(0, 1, ErrorMessage = "Durum bilgisi hatalı")]
         public bool state { get; set; }
         public DateTime? created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }

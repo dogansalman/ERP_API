@@ -33,7 +33,7 @@ namespace abkar_api.Models
         public bool is_production { get; set; } = false;
         public bool is_complated { get; set; } = false;
         [NotMapped]
-        public  ICollection<OrderStock>  order_stocks { get; set; }
+        public OrderStock order_stocks { get; set; }
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
 
