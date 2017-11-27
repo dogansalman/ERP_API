@@ -179,6 +179,7 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\ProductionsController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\StockCardsController.cs" />
     <Compile Include="Controllers\StockMovementsController.cs" />
     <Compile Include="Controllers\StockTypesController.cs" />

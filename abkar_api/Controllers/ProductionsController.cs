@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
@@ -87,6 +88,13 @@ namespace abkar_api.Controllers
             if (!ModelState.IsValid) return BadRequest(ModelState);
             Productions pro = db.productions.Find(id);
             if (pro == null) return NotFound();
+
+            //update stock
+            var stockcard_id = db.orderstocks.Where(os => os.order_id == pro.order_id).FirstOrDefault().stockcard_id;
+
+            StockCards sc = db.stockcards.Find(stockcard_id);
+            sc.unit = (sc.unit + (pro.unit - production.unit));
+
 
             // update production
             pro.name = production.name;
