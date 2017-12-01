@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using abkar_api.Contexts;
-
+using System.Collections.Generic;
 
 namespace abkar_api.Controllers
 {
@@ -66,6 +66,46 @@ namespace abkar_api.Controllers
              }).ToList();
         }
 
+        [HttpGet]
+        [Route("production/best")]
+        public object bestProduction()
+        {
+            var stockcards = (
+                 from p in db.productions
+                 join os in db.orderstocks on p.order_id equals os.order_id
+                 join sc in db.stockcards on os.stockcard_id equals sc.id
+                 group sc by new
+                 {
+                     sc.id
+                 } into sc
+                 select new
+                 {
+                     name = (from x in db.stockcards where x.id == sc.Key.id select x.name).FirstOrDefault(),
+                     id = sc.Key.id
+
+                 }).AsEnumerable()
+                 .Select(sc => new
+                 {
+                     name = sc.name,
+                     id = sc.id,
+                     unit = 0
+
+                 }).Take(10);
+
+            return stockcards.ToList().Select(x => new
+            {
+                name = x.name,
+                unit = (
+                from p in db.productions
+                join os in db.orderstocks on p.order_id equals os.order_id
+                join sc in db.stockcards on os.stockcard_id equals sc.id
+                where sc.id == x.id
+                where p.is_complate
+                select new { unit = p.unit }
+                ).Sum(xx => xx.unit)
+            }).ToList().OrderByDescending(xxx => xxx.unit);
+
+        }
 
     }
 }
