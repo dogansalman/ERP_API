@@ -40,7 +40,7 @@ namespace abkar_api.Controllers
             db.stockmovements.Add(stockmovements);
 
             //Add Stock to Stock Card
-            stockcards.unit = stockcards.unit + stockmovements.unit;
+            stockcards.unit = stockcards.unit + (stockcards.per_production_unit > 0 ? (stockmovements.unit * stockcards.per_production_unit) : stockmovements.unit);
 
             try
             {
@@ -72,7 +72,7 @@ namespace abkar_api.Controllers
             db.stockmovements.Add(stockmovements);
 
             //Remove Stock to Stock Card
-            stockcards.unit = stockcards.unit - stockmovements.unit;
+            stockcards.unit = stockcards.unit - (stockcards.per_production_unit > 0 ? (stockmovements.unit * stockcards.per_production_unit) : stockmovements.unit);
 
             try
             {

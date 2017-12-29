@@ -19,11 +19,22 @@ namespace abkar_api.Models
         public string name { get; set; }
         [Numeral(ErrorMessage = "Adet sadece rakkamsal değer olmalıdır.")]
         public int unit { get; set; } = 0;
+        [Numeral(ErrorMessage = "Adet sadece rakkamsal değer olmalıdır.")]
+        public int per_production_unit { get; set; } = 0;
         [Required]
         [StringLength(255, ErrorMessage = "Stok tipi en fazla 255 karakter olmalıdır.")]
         public string stock_type { get; set; }
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
+        private int _per_unit;
+        [NotMapped]
+        public int per_unit
+        {
+            get { return this.per_production_unit > 0 ? this.unit / this.per_production_unit : 0; }
+            set { _per_unit = value; }
+        }
+
+
         public bool deleted { get; set; } = false;
     }
 

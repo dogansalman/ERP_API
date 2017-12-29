@@ -57,6 +57,7 @@ namespace abkar_api.Controllers
             if (stockCardDetail == null) return NotFound();
             stockCardDetail.name = stockCards.name;
             stockCardDetail.stock_type = stockCards.stock_type;
+            stockCardDetail.per_production_unit = stockCards.per_production_unit;
             stockCardDetail.updated_date = DateTime.Now;
             try
             {
