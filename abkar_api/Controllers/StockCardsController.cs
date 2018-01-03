@@ -26,9 +26,10 @@ namespace abkar_api.Controllers
         [HttpGet]
         public IHttpActionResult detail(int id)
         {
-            StockCards stockCard = db.stockcards.Find(id);
-            if (stockCard == null) return NotFound();
-            return Ok(stockCard);
+            StockCards sc = db.stockcards.Find(id);
+            if (sc == null) return NotFound();
+            sc.stockcard_process_no = db.stockcard_process_no.Where(spn => spn.stockcard_id == sc.id).ToList();
+            return Ok(sc);
         }
         
         //Add Stock Card

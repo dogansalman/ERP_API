@@ -25,6 +25,7 @@ namespace abkar_api.Contexts
         public DbSet<Productions> productions { get; set; }
         public DbSet<ProductionPersonnel> production_personnels { get; set; }
         public DbSet<ProductionPersonnelOperation> production_personnel_operation { get; set; }
+        public DbSet<StockCardProcessNo> stockcard_process_no { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -43,6 +44,7 @@ namespace abkar_api.Contexts
             modelBuilder.Entity<Productions>().ToTable("productions");
             modelBuilder.Entity<ProductionPersonnel>().ToTable("productionpersonnel");
             modelBuilder.Entity<ProductionPersonnelOperation>().ToTable("productionpersonneloperation");
+            modelBuilder.Entity<StockCardProcessNo>().ToTable("stockcardprocessno");
 
         }
     }

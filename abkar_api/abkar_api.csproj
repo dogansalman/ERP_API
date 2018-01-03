@@ -227,6 +227,7 @@
     <Compile Include="Models\ProductionPersonnel.cs" />
     <Compile Include="Models\Productions.cs" />
     <Compile Include="Models\ProductionPersonnelOperation.cs" />
+    <Compile Include="Models\StockCardProcessNo.cs" />
     <Compile Include="Models\StockCards.cs" />
     <Compile Include="Models\StockMovements.cs" />
     <Compile Include="Models\StockTypes.cs" />

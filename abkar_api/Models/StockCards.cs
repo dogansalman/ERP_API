@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using abkar_api.Filters;
+using System.Collections.Generic;
 
 namespace abkar_api.Models
 {
@@ -26,6 +27,8 @@ namespace abkar_api.Models
         public string stock_type { get; set; }
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
+        [NotMapped]
+        public ICollection<StockCardProcessNo> stockcard_process_no { get; set; }
         private int _per_unit;
         [NotMapped]
         public int per_unit
