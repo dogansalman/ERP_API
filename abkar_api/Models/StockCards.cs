@@ -28,6 +28,8 @@ namespace abkar_api.Models
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
         [NotMapped]
+        public StockCardProcessNo process_no { get; set; }
+        [NotMapped]
         public ICollection<StockCardProcessNo> stockcard_process_no { get; set; }
         private int _per_unit;
         [NotMapped]

@@ -55,11 +55,19 @@ namespace abkar_api.Controllers
                {
                    order_stock = sc,
                    order_unit = os.order_unit,
-                   produced_orderstock = os.produced_orderstock
+                   produced_orderstock = os.produced_orderstock,
+                  
                }
             ).FirstOrDefault();
 
-            order.order_stocks = new OrderStock() { order_stock = orderstock.order_stock, order_unit = orderstock.order_unit, produced_orderstock = orderstock.produced_orderstock };
+            var pn = db.orderstocks.Where(os => os.order_id == order.id).FirstOrDefault().process_no;
+            if(pn != null) orderstock.order_stock.process_no = new StockCardProcessNo { id = 1, process_no = pn, stockcard_id = orderstock.order_stock.id };
+
+            order.order_stocks = new OrderStock() {
+                order_stock = orderstock.order_stock,
+                order_unit = orderstock.order_unit,
+                produced_orderstock = orderstock.produced_orderstock
+            };
 
             return order;
 
@@ -80,7 +88,8 @@ namespace abkar_api.Controllers
             {
                 order_id = orders.id,
                 order_unit = orders.order_stocks.order_unit,
-                stockcard_id = orders.order_stocks.order_stock.id
+                stockcard_id = orders.order_stocks.order_stock.id,
+                process_no = orders.order_stocks.order_stock.process_no.process_no
             };
             db.orderstocks.Add(os);
             db.SaveChanges();

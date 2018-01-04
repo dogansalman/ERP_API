@@ -18,7 +18,7 @@ namespace abkar_api.Controllers
         [HttpGet]
         public List<StockCards> get()
         {
-            return db.stockcards.Where(sc => sc.deleted == false).OrderBy((sc => sc.name)).ToList();
+            return db.stockcards.Where(sc => sc.deleted == false).OrderBy((sc => sc.name)).OrderByDescending(sc => sc.id).ToList();
         }
 
         //Detail Stock Card
@@ -37,9 +37,16 @@ namespace abkar_api.Controllers
         [HttpPost]
         public IHttpActionResult add([FromBody] StockCards stockCard)
         {
-            db.stockcards.Add(stockCard);
             try
             {
+                db.stockcards.Add(stockCard);
+                db.SaveChanges();
+
+                stockCard.stockcard_process_no.ToList().ForEach((spn => {
+                    spn.stockcard_id = stockCard.id;
+                    db.stockcard_process_no.Add(spn);
+                }));
+
                 db.SaveChanges();
             }
             catch (Exception e)
@@ -60,6 +67,13 @@ namespace abkar_api.Controllers
             stockCardDetail.stock_type = stockCards.stock_type;
             stockCardDetail.per_production_unit = stockCards.per_production_unit;
             stockCardDetail.updated_date = DateTime.Now;
+
+            db.stockcard_process_no.RemoveRange(db.stockcard_process_no.Where(spn => spn.stockcard_id == id).ToList());
+            stockCards.stockcard_process_no.ToList().ForEach((spn => {
+                spn.stockcard_id = id;
+                db.stockcard_process_no.Add(spn);
+            }));
+
             try
             {
                 db.SaveChanges();
@@ -90,5 +104,27 @@ namespace abkar_api.Controllers
             return Ok();
         }
 
+        //Get Stock Card With Process Numbers
+        [Route("process")]
+        [HttpGet]
+        public object getWithProcNo()
+        {
+            var x = (from sc in db.stockcards
+                     from spn in db.stockcard_process_no.Where(y => y.stockcard_id == sc.id).DefaultIfEmpty()
+                     select new
+                     {
+                         id = sc.id,
+                         name = sc.name,
+                         code = sc.code,
+                         unit = sc.unit,
+                         stock_type= sc.stock_type,
+                         created_date= sc.created_date,
+                         updated_date = sc.updated_date,
+                         process_no = spn
+                     }
+                     ).ToList();
+            return x;
+
+        }
     }
 }
