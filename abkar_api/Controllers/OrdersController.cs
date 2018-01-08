@@ -78,26 +78,27 @@ namespace abkar_api.Controllers
         [Route("")]
         public IHttpActionResult add([FromBody] Orders orders)
         {
-    
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            db.orders.Add(orders);
-
-            db.SaveChanges();
-
-            OrderStocks os = new OrderStocks()
-            {
-                order_id = orders.id,
-                order_unit = orders.order_stocks.order_unit,
-                stockcard_id = orders.order_stocks.order_stock.id,
-                process_no = orders.order_stocks.order_stock.process_no.process_no
-            };
-            db.orderstocks.Add(os);
-            db.SaveChanges();
-
             try
             {
-       
+                if (!ModelState.IsValid) return BadRequest(ModelState);
+                db.orders.Add(orders);
 
+                db.SaveChanges();
+
+                OrderStocks os = new OrderStocks()
+                {
+                    order_id = orders.id,
+                    order_unit = orders.order_stocks.order_unit,
+                    stockcard_id = orders.order_stocks.order_stock.id
+                };
+
+                if (orders.order_stocks.order_stock.process_no != null)
+                {
+                    os.process_no = orders.order_stocks.order_stock.process_no.process_no;
+                    os.process_name = orders.order_stocks.order_stock.process_no.name;
+                }
+                db.orderstocks.Add(os);
+                db.SaveChanges();
             }
             catch (Exception ex)
             {

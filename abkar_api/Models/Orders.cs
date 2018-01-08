@@ -12,7 +12,8 @@ namespace abkar_api.Models
         public int order_unit { get; set; }
         public int produced_orderstock  { get; set; }
         public string process_no { get; set; }
-        
+        public string process_name { get; set; }
+
     }
     public class OrderStockDetail
     {

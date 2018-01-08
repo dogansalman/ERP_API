@@ -17,6 +17,7 @@ namespace abkar_api.Models
         [Required]
         public int order_unit { get; set; }
         public string process_no { get; set; }
+        public string process_name { get; set; }
         public int produced_orderstock { get; set; } = 0;
         public DateTime created_date { get; set; } = DateTime.Now;
 
