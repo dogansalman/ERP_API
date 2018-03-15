@@ -5,6 +5,7 @@ using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
 using abkar_api.Libary.ExceptionHandler;
+using System.Security.Claims;
 
 namespace abkar_api.Controllers
 {
@@ -16,7 +17,8 @@ namespace abkar_api.Controllers
 
         //Get Customers
         [HttpGet]
-        [Route("")] 
+        [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public List<Customers> getCustomers()
         {
             return db.customers.Where(c => c.deleted == false).OrderByDescending(c => c.id).ToList();
@@ -24,7 +26,8 @@ namespace abkar_api.Controllers
 
         //Get Customer Detail
         [HttpGet]
-        [Route("{id}")] 
+        [Route("{id}")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult getCustomer(int id)
         {
             Customers customer = db.customers.FirstOrDefault(p => p.id == id);
@@ -35,7 +38,8 @@ namespace abkar_api.Controllers
         //Add Customer
         [HttpPost]
         [Route("")]
-        public IHttpActionResult add([FromBody] Customers customer)
+        [Authorize(Roles = "admin")]
+        public IHttpActionResult add([FromBody] Models.Customers customer)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             db.customers.Add(customer);
@@ -53,6 +57,7 @@ namespace abkar_api.Controllers
   
         //Update Customer
         [HttpPut]
+        [Authorize(Roles = "admin")]
         [Route("{id}")]
         public IHttpActionResult update([FromBody] Customers customer, int id)
         {
@@ -84,6 +89,7 @@ namespace abkar_api.Controllers
         
         //Delete customer
         [HttpDelete]
+        [Authorize(Roles = "admin")]
         [Route("{id}")]
         public IHttpActionResult delete(int id)
         {
@@ -101,7 +107,36 @@ namespace abkar_api.Controllers
             return Ok();
         }
 
-
+        /*
+         * Customer Order Monitoring 
+         * 
+         */
+        //Get Customers
+        [HttpGet]
+        [Route("detail")]
+        [Authorize]
+        public object customerDetail()
+        {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            int id = int.Parse(claimsIdentity.FindFirst("id").Value);
+            var cc = (from c in db.customers
+                      where c.id == id
+                      select new
+                      {
+                          company = c.company,
+                          adress = c.adress,
+                          email = c.email,
+                          name =c.name,
+                          lastname = c.lastname,
+                          phone = c.phone,
+                          created_date = c.created_date,
+                          updated_date = c.updated_date,
+                      }
+                      ).FirstOrDefault();
+            
+            if (cc == null)  NotFound();
+            return cc;
+        }
     }
 
 

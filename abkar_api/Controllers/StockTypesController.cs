@@ -16,6 +16,7 @@ namespace abkar_api.Controllers
         //Get Stock Types
         [Route("")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public List<StockTypes> get()
         {
             return db.stocktypes.OrderBy((st => st.name)).ToList();
@@ -24,6 +25,7 @@ namespace abkar_api.Controllers
         //Stock Type Detail
         [Route("{id}")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult detial(int id)
         {
             StockTypes stocktype = db.stocktypes.Find(id);
@@ -34,6 +36,7 @@ namespace abkar_api.Controllers
         //Add Stock Type
         [Route("")]
         [HttpPost]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] StockTypes stocktype)
         {
             db.stocktypes.Add(stocktype);
@@ -51,6 +54,7 @@ namespace abkar_api.Controllers
         //Update Stock Type
         [Route("{id}")]
         [HttpPut]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult update([FromBody] StockTypes stocktype, int id)
         {
             StockTypes StockTypeDetail = db.stocktypes.Find(id);
@@ -71,6 +75,7 @@ namespace abkar_api.Controllers
         //Delete Stock Type
         [Route("{id}")]
         [HttpDelete]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult delete(int id)
         {
             StockTypes stocktype = db.stocktypes.Find(id);

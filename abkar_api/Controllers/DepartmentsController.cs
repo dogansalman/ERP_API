@@ -14,6 +14,7 @@ namespace abkar_api.Controllers
         //Get Departments
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "admin")]
         public List<Departments> getDepartments()
         {
             return db.departments.OrderBy(d => d.name).ToList();  

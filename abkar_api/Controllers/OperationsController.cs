@@ -16,6 +16,7 @@ namespace abkar_api.Controllers
         //Get Operations
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public List<Operations> get()
         {
             return db.operations.OrderByDescending(c => c.id).ToList();
@@ -24,6 +25,7 @@ namespace abkar_api.Controllers
         //Get Operation
         [HttpGet]
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult detail(int id)
         {
             Operations operation = db.operations.FirstOrDefault(p => p.id == id);
@@ -34,6 +36,7 @@ namespace abkar_api.Controllers
         //Add Operation
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] Operations operation)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -51,6 +54,7 @@ namespace abkar_api.Controllers
 
         //Update Operation
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         [HttpPut]
         public IHttpActionResult update([FromBody] Operations operation, int id)
         {
@@ -72,6 +76,7 @@ namespace abkar_api.Controllers
 
         //Delete Operation
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         [HttpDelete]
         public IHttpActionResult delete(int id)
         {

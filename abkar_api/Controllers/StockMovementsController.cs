@@ -16,6 +16,7 @@ namespace abkar_api.Controllers
         //Get Stock Movements
         [Route("{stockCardId}")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public List<StockMovements> get(int stockCardId)
         {
             return db.stockmovements.Where(sm => sm.stockcard_id == stockCardId).OrderByDescending(sm => sm.id).ToList();
@@ -24,6 +25,7 @@ namespace abkar_api.Controllers
         //Add Stock Movement
         [Route("add/{stockCardId}")]
         [HttpPost]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] StockMovements stockmovements, int stockCardId)
         {
             //Stock Movement Add type is true
@@ -56,6 +58,7 @@ namespace abkar_api.Controllers
         //Remove Stock Movement
         [Route("remove/{stockCardId}")]
         [HttpPut]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult remove([FromBody] StockMovements stockmovements, int stockCardId)
         {
             //Stock Movement Remove type is false

@@ -16,6 +16,7 @@ namespace abkar_api.Controllers
         //Get Machines
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public List<Machines> get()
         {
             return db.machines.OrderByDescending(c => c.id).ToList();
@@ -24,6 +25,7 @@ namespace abkar_api.Controllers
         //Get Machine
         [HttpGet]
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult detail(int id)
         {
             Machines machine = db.machines.FirstOrDefault(p => p.id == id);
@@ -34,6 +36,7 @@ namespace abkar_api.Controllers
         //Add Machine
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] Machines machine)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -51,6 +54,7 @@ namespace abkar_api.Controllers
 
         //Update Operation
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         [HttpPut]
         public IHttpActionResult update([FromBody] Machines machine, int id)
         {
@@ -71,6 +75,7 @@ namespace abkar_api.Controllers
 
         //Delete Operation
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         [HttpDelete]
         public IHttpActionResult delete(int id)
         {

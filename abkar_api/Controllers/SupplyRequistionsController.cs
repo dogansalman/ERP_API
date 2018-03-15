@@ -16,6 +16,7 @@ namespace abkar_api.Controllers
         //Get Supply Requistions
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public object getSupplyRequisitions()
         {
             return db.supplyrequisitions.Join(
@@ -34,6 +35,7 @@ namespace abkar_api.Controllers
         //Add Supply Requisition
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] SupplyRequisitions supplyrequistions)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -63,6 +65,7 @@ namespace abkar_api.Controllers
         //Update Supply Requisition
         [HttpPut]
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult update([FromBody] SupplyRequisitions supplyrequistions, int id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);

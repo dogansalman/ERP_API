@@ -16,6 +16,7 @@ namespace abkar_api.Controllers
         //Get Personnel
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public object get()
         {
             return db.personnels.Join(
@@ -24,7 +25,7 @@ namespace abkar_api.Controllers
                 d => d.id,
                 (p, d) => new
                 {
-                    Personnel = p,
+                    Personnel = new { name = p.name ,lastname = p.lastname, department_id = p.department_id, state = p.state, created_date = p.created_date, updated_date = p.updated_date, deleted = p.deleted },
                     Department = d
                 })
                 .Where(p => p.Personnel.deleted == false)
@@ -34,6 +35,7 @@ namespace abkar_api.Controllers
         //Get Personnel Detail
         [HttpGet]
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning,quality,operation")]
         public IHttpActionResult getDetail(int id)
         {
             Personnel personel = db.personnels.FirstOrDefault(p => p.id == id);
@@ -45,6 +47,7 @@ namespace abkar_api.Controllers
         //Add Personnel
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult add([FromBody] Personnel personnel)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -63,6 +66,7 @@ namespace abkar_api.Controllers
         //Update Personnel
         [HttpPut]
         [Route("{id}")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult update([FromBody] Personnel personnel, int id)
         {
             Personnel personnelDetail = db.personnels.Find(id);
@@ -90,6 +94,7 @@ namespace abkar_api.Controllers
         //Delete Personnel
         [HttpDelete]
         [Route("{id}")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult delete(int id)
         {
             Personnel p = db.personnels.Find(id);

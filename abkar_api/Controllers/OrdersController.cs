@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using abkar_api.Models;
@@ -16,6 +15,7 @@ namespace abkar_api.Controllers
         // Orders
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public object get()
         {
             return (
@@ -34,12 +34,13 @@ namespace abkar_api.Controllers
                      select (p.unit)
                      ).DefaultIfEmpty(0).Sum()
                  }
-                 ).OrderByDescending(olist => olist.order.created_date).ToList();
+                 ).OrderBy(olist => olist.order.over_date).ToList();
         }
 
         // Order
         [HttpGet]
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         public object detail(int id)
         {
             Orders order = db.orders.Find(id);
@@ -76,6 +77,7 @@ namespace abkar_api.Controllers
         //Add
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] Orders orders)
         {
             try
@@ -106,5 +108,7 @@ namespace abkar_api.Controllers
             }
             return Ok(orders);
         }
+
+    
     }
 }

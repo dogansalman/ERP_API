@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 using abkar_api.Contexts;
-using System.Collections.Generic;
 
 namespace abkar_api.Controllers
 {
@@ -13,6 +11,7 @@ namespace abkar_api.Controllers
 
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "admin")]
         public object get()
         {
             int personels = db.personnels.Count();
@@ -33,6 +32,7 @@ namespace abkar_api.Controllers
 
         [HttpGet]
         [Route("stockcards/{unit}")]
+        [Authorize(Roles = "admin")]
         public object stockcards(int unit)
         {
             return (
@@ -44,6 +44,7 @@ namespace abkar_api.Controllers
 
         [HttpGet]
         [Route("production/{year}")]
+        [Authorize(Roles = "admin")]
         public object production(int year)
         {
             return
@@ -68,6 +69,7 @@ namespace abkar_api.Controllers
 
         [HttpGet]
         [Route("production/best")]
+        [Authorize(Roles = "admin")]
         public object bestProduction()
         {
             var stockcards = (

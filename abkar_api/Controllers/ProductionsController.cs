@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Web.Http;
 using abkar_api.Models;
 using abkar_api.Contexts;
@@ -15,6 +13,7 @@ namespace abkar_api.Controllers
 
         [HttpGet]
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         public object gets(int id)
         {
             return (
@@ -31,6 +30,7 @@ namespace abkar_api.Controllers
 
         [Route("")]
         [HttpPost]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] Productions production)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -41,7 +41,7 @@ namespace abkar_api.Controllers
             order.is_production = true;
 
             //update stock card real stock
-            int stockcard_id = db.orderstocks.Find(production.order_id).stockcard_id;
+            int stockcard_id = db.orderstocks.Where(os => os.order_id == production.order_id).FirstOrDefault().stockcard_id;
             StockCards sc = db.stockcards.Find(stockcard_id);
             sc.unit = sc.unit - production.unit;
 
@@ -49,18 +49,19 @@ namespace abkar_api.Controllers
             db.productions.Add(production);
             db.SaveChanges();
 
+            db.Configuration.ValidateOnSaveEnabled = false;
             //production personnels
             production.production_personnels.ToList().ForEach(pp =>
             {
+               
                 ProductionPersonnel personnel = new ProductionPersonnel
                 {
                     personel_id = pp.personnel.id,
                     production_id = production.id
                 };
                 db.production_personnels.Add(personnel);
-
                 db.SaveChanges();
-
+              
                 //personnels operation
                 pp.operations.ToList().ForEach(op =>
                 {
@@ -76,6 +77,7 @@ namespace abkar_api.Controllers
                 });
                 db.SaveChanges();
             });
+            db.Configuration.ValidateOnSaveEnabled = true;
 
             return Ok(production);
 
@@ -83,6 +85,7 @@ namespace abkar_api.Controllers
 
         [HttpPut]
         [Route("{id}")]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult update([FromBody] Productions production, int id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -142,6 +145,7 @@ namespace abkar_api.Controllers
 
         [Route("detail/{id}")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public object get(int id)
         {
             
@@ -185,6 +189,7 @@ namespace abkar_api.Controllers
 
         [Route("dispatch/{production_id}")]
         [HttpPost]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult addDispatch([FromBody] StockMovements stockmovements, int production_id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -263,6 +268,7 @@ namespace abkar_api.Controllers
         
         [Route("dispatch/{production_id}")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public object getDispatchs(int production_id)
         {
             return db.stockmovements.Where(sc => sc.production_id == production_id).OrderByDescending(sc => sc.id).ToList();

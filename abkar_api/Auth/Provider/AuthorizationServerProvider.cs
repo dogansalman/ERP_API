@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Security.Claims;
 using abkar_api.Contexts;
 using abkar_api.Models;
-using Microsoft.Owin;
 using System;
 using Microsoft.Owin.Security;
 using System.Collections.Generic;
@@ -22,29 +21,47 @@ namespace abkar_api.Auth.Provider
         DatabaseContext db = new DatabaseContext();
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-           context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            Personnel p = db.personnels.Where(pp => pp.username == context.UserName && pp.password == context.Password).FirstOrDefault();
-            string role = db.departments.Find(p.department_id).role;
-
-            if (p == null) context.SetError("invalid_grant", "Kullanıcı adı veya şifre yanlış.");
-
-            AuthenticationProperties properties = CreateProperties(p.name + " " + p.lastname, role);
-
-        
+            var body = await context.Request.ReadFormAsync();
+            var type = body["type"] != null ? body["type"] : null;
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+
+            // Customer Auth
+            if (type != null && type == "customer")
+            {
+                Customers customer = db.customers.Where(c => c.email == context.UserName && c.password == context.Password).FirstOrDefault();
+                if (customer == null) {
+                    context.SetError("invalid_grant", "Email or password is wrong !");
+                    return;
+                }
+                identity.AddClaim(new Claim("company", customer.company));
+                identity.AddClaim(new Claim("id", customer.id.ToString()));
+                AuthenticationProperties _properties = CreateCustomerProperties(customer.company);
+                AuthenticationTicket _ticket = new AuthenticationTicket(identity, _properties);
+                context.Validated(_ticket);
+                context.Validated(identity);
+                return;
+            }
+
+            // Personnel Auth
+            Personnel p = db.personnels.Where(pp => pp.username == context.UserName && pp.password == context.Password).FirstOrDefault();
+            if (p == null)
+            {
+                context.SetError("invalid_grant", "Kullanıcı adı veya şifre yanlış.");
+                return;
+            }
+            string role = db.departments.Find(p.department_id).role;
+            AuthenticationProperties properties = CreatePersonnelProperties(p.name + " " + p.lastname, role);
+
             identity.AddClaim(new Claim("name", p.name + " " + p.lastname));
             identity.AddClaim(new Claim("id", p.id.ToString()));
             identity.AddClaim(new Claim(ClaimTypes.Role, role));
-            
-
             AuthenticationTicket ticket = new AuthenticationTicket(identity, properties);
-
-
             context.Validated(ticket);
         }
       
-        public static AuthenticationProperties CreateProperties(string fullname, string Roles)
+        public static AuthenticationProperties CreatePersonnelProperties(string fullname, string Roles)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
@@ -52,7 +69,16 @@ namespace abkar_api.Auth.Provider
                 { "roles", Roles},
                 { "date", DateTime.Now.ToString()}
             };
-                return new AuthenticationProperties(data);
+           return new AuthenticationProperties(data);
+        }
+        public static AuthenticationProperties CreateCustomerProperties(string company)
+        {
+            IDictionary<string, string> data = new Dictionary<string, string>
+            {
+                { "company", company },
+                { "date", DateTime.Now.ToString()}
+            };
+            return new AuthenticationProperties(data);
         }
 
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)

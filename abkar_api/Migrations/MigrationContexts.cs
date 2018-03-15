@@ -30,6 +30,8 @@ namespace abkar_api.Models
         public DbSet<Machines> Machines { get; set; }
         public DbSet<Operations> Operations { get; set; }
         public DbSet<StockCardProcessNo> StockCardProcessNo { get; set; }
+        public DbSet<StockCardGroups> StockCardGroups { get; set; }
+       
 
 
     }

@@ -23,15 +23,15 @@ public class File
     public int id { get; set; }
 }
 
-
-
-
 namespace abkar_api.Controllers
 {
+
+
 
     [RoutePrefix("api/files")]
     public class FilesController : ApiController
     {
+
         string root = HttpContext.Current.Server.MapPath("~/Files/");
         //Create new file
         [HttpPost]
@@ -96,6 +96,7 @@ namespace abkar_api.Controllers
             return Ok(files);
           
         }
+
         [HttpGet]
         [Route("download/{id}/{file}/{ext}")]
         public HttpResponseMessage download(int id, string file, string ext)
@@ -112,6 +113,61 @@ namespace abkar_api.Controllers
 
             return result;
  
+        }
+
+        [HttpPost]
+        [Route("photo/{id}")]
+        public async Task<HttpResponseMessage> uploadPhoto(int id)
+        {
+            // Check if the request contains multipart/form-data.
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+            string rootFile = root + id + "/photo";
+            DirectoryInfo di = Directory.CreateDirectory(root + id);
+            DirectoryInfo di_profile = Directory.CreateDirectory(root + id + "/photo");
+
+            CustomMultipartFormDataStreamProvider provider = new CustomMultipartFormDataStreamProvider(rootFile);
+            try
+            {
+               
+                //clear files
+                foreach (FileInfo _file in new DirectoryInfo(rootFile).GetFiles())
+                {
+                    _file.Delete();
+                }
+
+                 // Read the form data.
+                await Request.Content.ReadAsMultipartAsync(provider);
+
+                File file = new File();
+                file.id = id;
+
+                // Get last filename
+                foreach (MultipartFileData files in provider.FileData)
+                {
+                    file.name = files.Headers.ContentDisposition.FileName.Replace('"', ' ').Trim();
+                }
+
+                //change filename
+                FileInfo photoFile = new FileInfo(rootFile + "/" + file.name);
+                if(photoFile.Exists)
+                {
+                    string vExtension = photoFile.Extension;
+                    string vNewFileName = rootFile + vExtension;
+                    string vNewFullName = photoFile.DirectoryName + "/photo" + vExtension;
+                    photoFile.MoveTo(vNewFullName);
+                }
+
+               return Request.CreateResponse(HttpStatusCode.OK, new { id = id, name = file.name});
+
+            }
+            catch (System.Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+            }
+
         }
 
     }

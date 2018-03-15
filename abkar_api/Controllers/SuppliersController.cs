@@ -9,6 +9,7 @@ using abkar_api.Libary.ExceptionHandler;
 namespace abkar_api.Controllers
 {
     [RoutePrefix("api/suppliers")]
+  
     public class SuppliersController : ApiController
     {
         DatabaseContext db = new DatabaseContext();
@@ -16,6 +17,7 @@ namespace abkar_api.Controllers
         //Get Suppliers
         [Route("")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public List<Suppliers> getSuppliers()
         {
             return db.suppliers.OrderBy(s => s.name).ToList();
@@ -24,6 +26,7 @@ namespace abkar_api.Controllers
         //Get Supplier Detail
         [Route("{id}")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult detail(int id)
         {
             Suppliers supplier = db.suppliers.FirstOrDefault(s => s.id == id);
@@ -34,6 +37,7 @@ namespace abkar_api.Controllers
         //Add Supplier
         [Route("")]
         [HttpPost]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] Suppliers supplier)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -52,6 +56,7 @@ namespace abkar_api.Controllers
         //Update Supplier
         [Route("{id}")]
         [HttpPut]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult update([FromBody] Suppliers supplierDetail, int id)
         {
             Suppliers supplier = db.suppliers.Find(id);
@@ -83,6 +88,7 @@ namespace abkar_api.Controllers
         //Delete
         [Route("{id}")]
         [HttpDelete]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult delete(int id)
         {
             Suppliers supplier = db.suppliers.Find(id);

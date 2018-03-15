@@ -15,6 +15,7 @@ namespace abkar_api.Controllers
 
         //Get Stock Cards
         [Route("")]
+        [Authorize(Roles = "admin,planning")]
         [HttpGet]
         public List<StockCards> get()
         {
@@ -24,6 +25,7 @@ namespace abkar_api.Controllers
         //Detail Stock Card
         [Route("{id}")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult detail(int id)
         {
             StockCards sc = db.stockcards.Find(id);
@@ -35,6 +37,7 @@ namespace abkar_api.Controllers
         //Add Stock Card
         [Route("")]
         [HttpPost]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult add([FromBody] StockCards stockCard)
         {
             try
@@ -59,6 +62,7 @@ namespace abkar_api.Controllers
         //Update Stock Card
         [Route("{id}")]
         [HttpPut]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult update([FromBody] StockCards stockCards, int id)
         {
             StockCards stockCardDetail = db.stockcards.Find(id);
@@ -88,6 +92,7 @@ namespace abkar_api.Controllers
         //Delete Stock Card
         [Route("{id}")]
         [HttpDelete]
+        [Authorize(Roles = "admin,planning")]
         public IHttpActionResult delete(int id)
         {
             StockCards stockCard = db.stockcards.Find(id);
@@ -107,10 +112,12 @@ namespace abkar_api.Controllers
         //Get Stock Card With Process Numbers
         [Route("process")]
         [HttpGet]
+        [Authorize(Roles = "admin,planning")]
         public object getWithProcNo()
         {
             var x = (from sc in db.stockcards
                      from spn in db.stockcard_process_no.Where(y => y.stockcard_id == sc.id).DefaultIfEmpty()
+                     where !sc.deleted 
                      select new
                      {
                          id = sc.id,
