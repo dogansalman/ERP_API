@@ -194,8 +194,8 @@
     <Compile Include="Auth\Provider\AuthorizationServerProvider.cs" />
     <Compile Include="Auth\Startup.cs" />
     <Compile Include="Contexts\DatabaseContext.cs" />
-    <Compile Include="Controllers\ComController\ComCompanyController.cs" />
-    <Compile Include="Controllers\ComController\ComOrdersController.cs" />
+    <Compile Include="Controllers\CmdsController\ComCompanyController.cs" />
+    <Compile Include="Controllers\CmdsController\ComOrdersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
@@ -204,10 +204,13 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\ProductionsController.cs" />
+    <Compile Include="Controllers\QualityFilesController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\StockCardsController.cs" />
     <Compile Include="Controllers\StockMovementsController.cs" />
     <Compile Include="Controllers\StockTypesController.cs" />
+    <Compile Include="Controllers\SupplierController\RequisitionsController.cs" />
+    <Compile Include="Controllers\SupplierController\SupplierController.cs" />
     <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Controllers\SupplyRequistionsController.cs" />
     <Compile Include="Filters\Numeral.cs" />
@@ -240,6 +243,7 @@
     <Compile Include="ModelViews\_ComCustomers.cs" />
     <Compile Include="ModelViews\_ProductionPersonnelOperation.cs" />
     <Compile Include="ModelViews\_ProductionPersonnelsWithOperation.cs" />
+    <Compile Include="ModelViews\_QualityFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

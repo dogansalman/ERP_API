@@ -1,0 +1,20 @@
+-delete remote branch
+git push origin --delete {branchname}
+
+-new local branch / must create your branch local for crate remote branch
+git checkout -b {branchname}
+
+-new remote branch 
+git push -u origin {branchname}
+
+-get current branch name
+git branch
+
+-swich branch
+git checkout {branchname}
+
+-branch list
+git branch -a
+
+
+

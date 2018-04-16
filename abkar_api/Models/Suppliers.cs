@@ -33,6 +33,7 @@ namespace abkar_api.Models
         public string email { get; set; }
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
+        public string password { get; set; }
 
     }
 }

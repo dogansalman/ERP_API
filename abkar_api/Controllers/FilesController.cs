@@ -26,11 +26,14 @@ public class File
 namespace abkar_api.Controllers
 {
 
-
-
     [RoutePrefix("api/files")]
     public class FilesController : ApiController
     {
+
+       
+        
+      
+    
 
         string root = HttpContext.Current.Server.MapPath("~/Files/");
         //Create new file
@@ -119,6 +122,7 @@ namespace abkar_api.Controllers
         [Route("photo/{id}")]
         public async Task<HttpResponseMessage> uploadPhoto(int id)
         {
+
             // Check if the request contains multipart/form-data.
             if (!Request.Content.IsMimeMultipartContent())
             {

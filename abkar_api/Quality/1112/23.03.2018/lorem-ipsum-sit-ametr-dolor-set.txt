@@ -1,0 +1,12 @@
+  ---------- admin
+- personel
+- musteri
+- report
+- ----- planlama
+  - tedarik
+  - stok
+  - sipariþ
+  - makine
+  - operasyon
+
+

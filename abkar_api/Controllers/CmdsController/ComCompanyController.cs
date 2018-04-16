@@ -15,7 +15,7 @@ namespace abkar_api.Controllers.ComController
 
         [HttpGet]
         [Route("")]
-        [Authorize]
+        [Authorize(Roles = "customer")]
         public object get_()
         {
             int id = Identity.get(User);
@@ -36,7 +36,7 @@ namespace abkar_api.Controllers.ComController
         }
         [HttpPut]
         [Route("")]
-        [Authorize]
+        [Authorize(Roles = "customer")]
         public IHttpActionResult update(_ComCustomers customer)
         {
             int id = Identity.get(User);
@@ -57,14 +57,14 @@ namespace abkar_api.Controllers.ComController
 
         [HttpPut]
         [Route("password")]
-        [Authorize]
+        [Authorize(Roles = "customer")]
         public IHttpActionResult password(_ComPassword customerPassword)
         {
             int id = Identity.get(User);
             if (!ModelState.IsValid) return BadRequest(ModelState);
             Customers c = db.customers.Find(id);
             if (c == null) return NotFound();
-            if (customerPassword.newPassword != customerPassword.reply) return BadRequest();
+            if (customerPassword.newPassword != customerPassword.reply || c.password != customerPassword.password) return BadRequest();
 
             c.password = customerPassword.newPassword;
             db.SaveChanges();

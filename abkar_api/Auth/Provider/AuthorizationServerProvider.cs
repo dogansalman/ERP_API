@@ -27,6 +27,29 @@ namespace abkar_api.Auth.Provider
             var type = body["type"] != null ? body["type"] : null;
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
+
+            // Supplier Auth
+            if (type != null && type == "supplier")
+            {
+                Suppliers customer = db.suppliers.Where(c => c.email == context.UserName && c.password == context.Password).FirstOrDefault();
+                if (customer == null)
+                {
+                    context.SetError("invalid_grant", "Email or password is wrong !");
+                    return;
+                }
+                identity.AddClaim(new Claim("supplier", customer.company));
+                identity.AddClaim(new Claim("id", customer.id.ToString()));
+                identity.AddClaim(new Claim(ClaimTypes.Role, "supplier"));
+                AuthenticationProperties _properties = CreateCustomerProperties(customer.company);
+                AuthenticationTicket _ticket = new AuthenticationTicket(identity, _properties);
+      
+        
+
+                context.Validated(_ticket);
+                context.Validated(identity);
+                return;
+            }
+
             // Customer Auth
             if (type != null && type == "customer")
             {
@@ -37,6 +60,7 @@ namespace abkar_api.Auth.Provider
                 }
                 identity.AddClaim(new Claim("company", customer.company));
                 identity.AddClaim(new Claim("id", customer.id.ToString()));
+                identity.AddClaim(new Claim(ClaimTypes.Role, "customer"));
                 AuthenticationProperties _properties = CreateCustomerProperties(customer.company);
                 AuthenticationTicket _ticket = new AuthenticationTicket(identity, _properties);
                 context.Validated(_ticket);

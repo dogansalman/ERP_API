@@ -12,7 +12,7 @@ namespace abkar_api.Controllers.ComController
 
         [HttpGet]
         [Route("")]
-        [Authorize]
+        [Authorize(Roles = "customer")]
         public object get_()
         {
             int id = Identity.get(User);

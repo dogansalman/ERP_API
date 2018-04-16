@@ -28,6 +28,8 @@ namespace abkar_api.Models
         public Boolean notify { get; set; } = false;
         [Required]
         public DateTime delivery_date { get; set; }
+        [Required]
+        public int supplier_id { get; set; }
         public DateTime created_date { get; set; } = DateTime.Now;
         public DateTime? updated_date { get; set; }
 

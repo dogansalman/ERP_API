@@ -20,7 +20,8 @@ namespace abkar_api.Controllers
         [Authorize(Roles = "admin,planning")]
         public List<Suppliers> getSuppliers()
         {
-            return db.suppliers.OrderBy(s => s.name).ToList();
+            var supplier = db.suppliers.OrderBy(s => s.name).ToList();
+            return supplier;
         }
 
         //Get Supplier Detail
@@ -70,6 +71,7 @@ namespace abkar_api.Controllers
             supplier.email = supplierDetail.email;
             supplier.name = supplierDetail.name;
             supplier.lastname = supplierDetail.lastname;
+            supplier.password = supplierDetail.password;
             supplier.updated_date = DateTime.Now;
 
             try
