@@ -1,0 +1,6 @@
+﻿### ignore packages
+/packages/
+abkar_api/obj
+abkar_api/bin
+abkar_api/files
+.vs/

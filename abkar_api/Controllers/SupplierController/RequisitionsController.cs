@@ -17,6 +17,51 @@ namespace abkar_api.Controllers.SupplierController
     public class RequisitionsController : ApiController
     {
         string root = HttpContext.Current.Server.MapPath("~/Documents/");
+        List<string> extention = new List<string> { ".pdf", ".doc", ".docx", ".gif", ".jpg", ".jpeg", ".rft", ".rar", ".zip", ".png" };
+        private bool validateExt(string fileExtentions)
+        {
+            foreach (var ext in extention)
+            {
+                if (ext == fileExtentions) return true;
+            }
+            return false;
+        }
+        public static object getFolders(string targetDirectory)
+        {
+            // Process the list of files found in the directory.
+            List<object> files = new List<object>();
+            foreach (string s in Directory.GetDirectories(targetDirectory))
+            {
+                DirectoryInfo info = new DirectoryInfo(s);
+                files.Add(new {
+                    folder = info.Name,
+                    files = filesCount(s)
+                });
+            }
+            return files;
+        }
+        public static int filesCount(string folderPath)
+        {
+            string[] fileEntries = Directory.GetFiles(folderPath);
+            return fileEntries.Length;
+        }
+
+        public static  object Files(string folderPath)
+        {
+            DirectoryInfo info = new DirectoryInfo(folderPath);
+            List<object> files = new List<object>();
+            string[] fileEntries = Directory.GetFiles(folderPath);
+            foreach (var file in fileEntries)
+            {
+                files.Add(new
+                {
+                    mainFolder = info.Name,
+                    filename = new FileInfo(file).Name
+                });
+            }
+            return files;
+            
+        }
         DatabaseContext db = new DatabaseContext();
 
         [HttpGet]
@@ -68,6 +113,7 @@ namespace abkar_api.Controllers.SupplierController
         //[Authorize(Roles = "supplier")]
         public async Task<HttpResponseMessage> upload(int id)
         {
+            
             string date = HttpContext.Current.Request.Form["date"].ToString().Replace('.','-');
             string filaname = HttpContext.Current.Request.Form["filename"].ToString().Trim();
             string note = HttpContext.Current.Request.Form["note"].ToString();
@@ -84,13 +130,7 @@ namespace abkar_api.Controllers.SupplierController
             CustomMultipartFormDataStreamProvider provider = new CustomMultipartFormDataStreamProvider(rootFile);
             try
             {
-
-                //clear files
-                foreach (FileInfo _file in new DirectoryInfo(rootFile).GetFiles())
-                {
-                    _file.Delete();
-                }
-
+                
                 // Read the form data.
                 await Request.Content.ReadAsMultipartAsync(provider);
 
@@ -102,9 +142,14 @@ namespace abkar_api.Controllers.SupplierController
                 {
                     file.name = files.Headers.ContentDisposition.FileName.Replace('"', ' ').Trim();
                 }
-
+            
                 //change filename
                 FileInfo photoFile = new FileInfo(rootFile + "/" + file.name);
+
+                // Validate extentions
+                if(!validateExt(photoFile.Extension)) return Request.CreateResponse(HttpStatusCode.BadRequest, "Dosya formatı hatalı");
+
+
                 if (photoFile.Exists)
                 {
                     string vExtension = photoFile.Extension;
@@ -120,6 +165,29 @@ namespace abkar_api.Controllers.SupplierController
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
+        }
+        
+        [HttpGet]
+        //[Authorize(Roles = "supplier")]
+        [Route("docs/{id}")]
+        public object getDocs(int id)
+        {
+            if (Directory.Exists(root + @"\" + id))
+            {
+                return getFolders(root + @"\" + id);
+            }
+            return Ok();
+        }
+        [HttpGet]
+        //[Authorize(Roles = "supplier")]
+        [Route("files/{id}/{folder}")]
+        public object getFiles(int id, string folder) 
+        {
+            if (Directory.Exists(root + @"\" + id + @"\" + folder))
+            {
+                return Files(root + @"\" + id + @"\" + folder);
+            }
+            return Ok();
         }
     }
 }

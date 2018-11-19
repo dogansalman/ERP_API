@@ -25,7 +25,7 @@ namespace abkar_api.Controllers
                 d => d.id,
                 (p, d) => new
                 {
-                    Personnel = new { name = p.name ,lastname = p.lastname, department_id = p.department_id, state = p.state, created_date = p.created_date, updated_date = p.updated_date, deleted = p.deleted },
+                    Personnel = new { id = p.id,  name = p.name ,lastname = p.lastname, department_id = p.department_id, state = p.state, created_date = p.created_date, updated_date = p.updated_date, deleted = p.deleted },
                     Department = d
                 })
                 .Where(p => p.Personnel.deleted == false)
